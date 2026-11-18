@@ -9,7 +9,10 @@ and mobile. No server, no account, no telemetry, no third-party code.
 | | Katana 刀 | Karambit | **Wakizashi 脇差** |
 |---|---|---|---|
 | Platform | Desktop (Python server + web GUI) | Native Android | **Any modern browser — installable PWA** |
-| Repo | `R0N1N9/cti-tools` | `R0N1N9/karambit` | `R0N1N9/wakizashi` |
+| Get it | [Source & install](https://github.com/R0N1N9/katana) *(private repo)* | [Download APK (nightly)](https://github.com/R0N1N9/karambit/releases/download/nightly/roninsec-debug.apk) · [Releases](https://github.com/R0N1N9/karambit/releases) | **[Open the web app](https://r0n1n9.github.io/wakizashi/)** |
+| Repo | `R0N1N9/katana` | [`R0N1N9/karambit`](https://github.com/R0N1N9/karambit) | [`R0N1N9/wakizashi`](https://github.com/R0N1N9/wakizashi) |
+
+The same links are inside the app under **Settings → RoninSec family**.
 
 The wakizashi is the short companion blade worn beside the katana — this is the one you always have on you.
 
@@ -91,7 +94,7 @@ Highlights:
 
 ## Use it
 
-- **Hosted:** GitHub Pages (`https://r0n1n9.github.io/wakizashi/`) — see *Deploy* below.
+- **Hosted:** **<https://r0n1n9.github.io/wakizashi/>** (GitHub Pages — see *Deploy* below).
 - **Install:** open it, then use your browser's *Install app* (desktop / Android) or *Share → Add to Home
   Screen* (iOS). It works offline after the first visit.
 - **Locally:** any static server, e.g. `python3 -m http.server 8800` then open <http://localhost:8800>.
