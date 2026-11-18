@@ -45,6 +45,10 @@ TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   W.tool("yoroi", "phish", {
     name: "Phish", order: 50, icon: ICON,
     desc: "Triage a reported email: SPF/DKIM/DMARC, relay path, lookalike links, attachments, verdict.",
+    help: {
+      steps: ["Paste the full source of a reported email (headers + body) or Load .eml.", "Read the verdict: SPF/DKIM/DMARC, relay path, lookalike links, link-text mismatches and attachments."],
+      tips: ["Gmail: ⋮ → Show original. Outlook: File → Properties → Internet headers (or save the message as .eml)."],
+    },
     render(el, arg) {
       el.innerHTML = ui.head("PHISH", "Email triage", "Paste the full source of a reported email (headers + body) or drop the .eml. Sender authentication, relay hops, lookalike and mismatched links, attachments and pressure language are analysed locally — nothing is fetched.") +
         ui.panel("Raw message", `<textarea id="ph-t" rows="8" spellcheck="false" autocapitalize="off" placeholder="Outlook: File → Properties → Internet headers (+ body) · Gmail: ⋮ → Show original · Apple Mail: View → Message → Raw Source"></textarea>

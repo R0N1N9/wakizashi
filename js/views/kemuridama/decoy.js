@@ -6,6 +6,10 @@
   W.tool("kemuridama", "decoy", {
     name: "Decoy", order: 40,
     desc: "Generate a clearly fictitious cover identity from a seed (name, address, fiction-range phone, aliases), plus canary tokens and honeytokens.",
+    help: {
+      steps: ["Enter a seed and press Generate for a clearly fictitious cover identity (name, address, fiction-range phone, aliases).", "Save personas you use; export them as JSON.", "Use the canary/honeytoken tab to create tripwires."],
+      tips: ["Use decoys for sign-ups, loyalty cards and forums you don't trust."],
+    },
     icon: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M3 4l3 3M21 4l-3 3"/>',
     render(el) {
       let tab = W.kmz.store("decoy", "tab", "persona");

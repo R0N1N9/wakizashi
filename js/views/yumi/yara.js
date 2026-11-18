@@ -6,6 +6,10 @@
   W.tool("yumi", "yara", {
     name: "YARA", order: 40,
     desc: "Build YARA rules from IOCs, a sample, strings or a template; validate, test and keep a library.",
+    help: {
+      steps: ["Choose how to start: IOCs, a sample file, strings, or a template.", "Press Generate/Build, then Validate with the built-in YARA-lite engine and test against a file.", "Save it to your library, download the .yar, or send it to Yoroi to enable for file scans."],
+      tips: ["Export all (.yar) backs up your whole library."],
+    },
     icon: '<path d="M4 4h16v4H4zM4 10h10v4H4zM4 16h7v4H4z"/><path d="M17 14l2 2 3-4"/>',
     render(el, arg) {
       let tab = arg && arg.strings ? "build" : W.store.get("yumi.yara.tab", "iocs");

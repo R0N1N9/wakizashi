@@ -7,6 +7,10 @@
   W.tool("kemuridama", "passgen", {
     name: "Passwords", order: 50,
     desc: "Generate strong random passwords and word passphrases, and check how fast a password you type would fall to real attacks.",
+    help: {
+      steps: ["Choose random password or word passphrase and set the length.", "Press New (or 5 more) and copy the one you like.", "Type an existing password to see how fast it would fall to real attacks."],
+      tips: ["Uses the browser's cryptographic RNG; nothing is stored or sent."],
+    },
     icon: '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
     render(el) {
       let tab = W.kmz.store("passgen", "tab", "gen");

@@ -6,6 +6,10 @@
   W.tool("yumi", "triage", {
     name: "Triage", order: 50,
     desc: "Static file analysis — hashes, imphash, PE/ELF/PDF/Office/APK structure, capabilities, embedded IOCs.",
+    help: {
+      steps: ["Drop a suspicious file onto the drop zone.", "Read hashes (incl. imphash), structure (PE/ELF/PDF/Office/APK), capabilities and embedded IOCs.", "Pivot on the SHA-256, add the hash to your case, or export the result as JSON."],
+      tips: ["The file never leaves this device — only you decide whether to look its hash up."],
+    },
     icon: '<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/>',
     render(el) {
       el.innerHTML = ui.head("Triage", "Static analysis", "PEStudio-style triage of a suspicious file. The file never leaves this device — only you decide whether to look its hash up anywhere.") +

@@ -7,6 +7,10 @@
   W.tool("yumi", "pivot", {
     name: "Pivot", order: 15,
     desc: "One indicator → every reputation, intel and infrastructure page worth opening.",
+    help: {
+      steps: ["Type an IP, domain, URL, hash, CVE, email, ASN, wallet, ATT&CK id or @username and press Pivot.", "Open the reputation, intel and infrastructure links you want — or Open all.", "Add the indicator to your case when it matters."],
+      tips: ["Nothing is queried until you open a link, so pivoting is private by default."],
+    },
     icon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/>',
     render(el, arg) {
       const recent = W.store.get("yumi.pivot.recent", []);

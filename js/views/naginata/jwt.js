@@ -13,6 +13,10 @@
   W.tool("naginata", "jwt", {
     name: "JWT", order: 50,
     desc: "Decode a JSON Web Token, read its claims and times, flag weak configuration and verify the signature with your key.",
+    help: {
+      steps: ["Paste a JSON Web Token and press Decode to read its header, claims and times.", "Review the weak-configuration flags (alg none, long lifetimes…).", "Enter the key/secret and press Verify to check the signature."],
+      tips: ["Treat engagement tokens as credentials — decoding is local, never paste them into online decoders."],
+    },
     icon: '<path d="M12 3v5M12 16v5M3 12h5M16 12h5M5.6 5.6l3.5 3.5M14.9 14.9l3.5 3.5M5.6 18.4l3.5-3.5M14.9 9.1l3.5-3.5"/>',
     render(el, arg) {
       W.roeGate(el, () => {

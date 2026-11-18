@@ -134,6 +134,10 @@ ${body.join("\n")}
   W.tool("naginata", "report", {
     name: "Report", order: 60,
     desc: "Write up findings with severity, CVSS, affected assets (scope-checked), evidence and fixes — export Markdown or HTML.",
+    help: {
+      steps: ["Press New finding and fill in title, severity, CVSS (use Calculator), affected assets, evidence and the fix.", "Assets outside the Scope board are flagged before they reach the report.", "Preview, then export Markdown, HTML or JSON."],
+      tips: ["Findings are saved in this browser — Import/JSON lets you move them."],
+    },
     icon: '<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6M9 8h2"/>',
     render(el, arg) {
       W.roeGate(el, () => {

@@ -14,6 +14,10 @@
   W.tool("kemuridama", "trace", {
     name: "Trace", order: 60,
     desc: "Strip tracking parameters, unwrap redirect wrappers (Google, Facebook, Outlook Safe Links…), flag shorteners and look-alike domains.",
+    help: {
+      steps: ["Paste links, a message, or an email's HTML source.", "Press Clean to strip tracking IDs, unwrap redirect wrappers and flag shorteners and look-alike domains.", "Copy the cleaned links."],
+      tips: [],
+    },
     icon: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/><path d="M3 3l18 18"/>',
     render(el, arg) {
       el.innerHTML = ui.head("Trace", "Link cleaner", "Paste links, a message, or an email's HTML source. Tracking IDs (utm_*, fbclid, gclid, si…) tie a click to you and your account; redirect wrappers log where you go. Everything is checked offline — nothing is fetched.") + `

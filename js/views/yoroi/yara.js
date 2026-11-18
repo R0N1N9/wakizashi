@@ -51,6 +51,10 @@
   W.tool("yoroi", "yara", {
     name: "YARA", order: 40, icon: ICON,
     desc: "Scan files with bundled + custom YARA-lite rules and manage your rule library.",
+    help: {
+      steps: ["Drop one or many files to scan them with the bundled rules plus your enabled custom rules.", "Or paste text and use Scan text.", "Import .yar files, or enable rules sent from Yumi, to grow the library."],
+      tips: ["Files are scanned in this browser only."],
+    },
     render(el, arg) {
       el.innerHTML = ui.head("YARA", "File scanner", "Drop one or many files — they are scanned in this browser with the bundled rules plus your enabled custom rules (including rules sent from Yumi). Nothing is uploaded.") +
         `<div class="tabs" id="yr-tabs">${[["scan", "Scan"], ["library", "Custom rules"], ["bundled", "Bundled rules"]].map(([k, l]) => `<button type="button" data-tab="${k}">${l}</button>`).join("")}</div><div id="yr-body"></div>`;

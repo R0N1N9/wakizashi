@@ -6,6 +6,10 @@
   W.tool("yumi", "case", {
     name: "Case", order: 30,
     desc: "Investigations shared by every layer — indicators, verdicts, notes; export Markdown, CSV, JSON or STIX.",
+    help: {
+      steps: ["Create or pick the active case — every layer adds indicators to it.", "Add items, set verdicts, tags and notes.", "Export as a Markdown report, CSV, JSON or STIX 2.1 to share."],
+      tips: ["Cases live only in this browser — export them, or take a backup from Settings."],
+    },
     icon: W.I.case,
     render(el) {
       const draw = () => {

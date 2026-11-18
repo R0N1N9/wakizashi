@@ -339,3 +339,18 @@ pre.out {
 .gate .panel { border-color: rgba(var(--acc-rgb), .5); }
 
 footer.foot { display: flex; gap: 10px; padding: 18px 0 0; color: var(--faint); font: 600 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; flex-wrap: wrap; }
+
+/* Settings → Tool guide */
+.guide details { border: 1px solid var(--line); border-radius: 8px; margin: 8px 0; }
+.guide details[open] { border-color: var(--acc, var(--brand)); }
+.guide summary { cursor: pointer; list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 10px 12px; min-height: 44px; }
+.guide summary::-webkit-details-marker { display: none; }
+.guide summary::before { content: "▸"; color: var(--acc, var(--brand)); }
+.guide details[open] > summary::before { content: "▾"; }
+.guide summary b { color: var(--acc, var(--brand)); font-family: var(--mono); letter-spacing: .08em; }
+.guide summary .muted { flex: 1 1 200px; }
+.guide .g-layer > p, .guide .g-layer > details { margin-left: 12px; margin-right: 12px; }
+.guide .g-layer > details:last-child { margin-bottom: 12px; }
+.guide .g-body { padding: 0 14px 12px; font-size: 14px; line-height: 1.55; }
+.guide .g-sec { margin: 8px 0 4px; font: 700 10px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.guide ol, .guide ul { margin: 0 0 8px; padding-left: 20px; }

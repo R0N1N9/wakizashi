@@ -14,6 +14,10 @@
   W.tool("yoroi", "respond", {
     name: "Respond", order: 70, icon: ICON,
     desc: "Incident board: NIST 800-61 phases, playbook checklists, IOCs, evidence, timeline, Markdown report.",
+    help: {
+      steps: ["Open an incident and pick a playbook.", "Work through the NIST SP 800-61 phases, ticking checklist items and adding IOCs, ATT&CK techniques, evidence and timeline entries.", "Export a Markdown incident report when you're done."],
+      tips: ["Incidents are stored only in this browser."],
+    },
     render(el, arg) {
       if (arg && typeof arg === "object" && arg.title) {           // W.go("yoroi","respond",{title, severity, iocs, origin, playbook, summary})
         const l = load(), inc = P().newIncident(arg, l); l.unshift(inc); save(l); W.store.set(ACT, inc.id);

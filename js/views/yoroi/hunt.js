@@ -132,6 +132,10 @@
   W.tool("yoroi", "hunt", {
     name: "Hunt", order: 10,
     desc: "Threat hunt through auth, web, Windows, JSON or CSV logs with 25 detections + Sigma.",
+    help: {
+      steps: ["Paste or Load file — auth.log/syslog, web access logs, Windows/Sysmon XML, JSON (WinEvent, ECS, CloudTrail) or CSV.", "Press Hunt to run the built-in detections and your enabled Sigma rules.", "Open findings to see the matching events; send critical/high to a case, build a block, or turn one into a rule."],
+      tips: ["Tune or switch off detections in Rules.", "Mark events and use Synth to draft a new rule from them."],
+    },
     icon: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5M11 7v8M7 11h8"/>',
     render(el, arg) {
       el.innerHTML = ui.head("Hunt", "Log analysis", "Paste or drop logs — auth.log/syslog, web access logs, Windows/Sysmon XML, JSON (WinEvent, ECS, CloudTrail) or CSV. 25 behavioural detections and your enabled Sigma rules run locally; nothing is uploaded.") + `
