@@ -1,0 +1,15 @@
+# In scope — Acme external + internal assessment (example data, documentation ranges)
+10.0.0.0/8            # internal corp
+198.51.100.10-20      # DMZ hosts
+203.0.113.7
+2001:db8:1::/48
+example.com
+*.example.com
+api.*.example.com
+---
+# Out of scope
+10.10.10.0/24         # production payments VLAN
+vpn.example.com
+*.payments.example.com
+payments.example.com
+2001:db8:1:dead::/64

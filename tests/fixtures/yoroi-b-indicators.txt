@@ -1,0 +1,10 @@
+# indicators from Op Ember (defanged on purpose)
+185.220.101[.]4, 45.9.148.108; 185.220.101.4
+91.92.241.7/22
+2001:4860:0:0::8888
+hxxps://paypa1-secure[.]top/signin?x=1
+login-micros0ft[.]com
+CDN-UPDATE.top.
+E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+192.168.1.10 fe80::1 ::/0
+not_an_indicator

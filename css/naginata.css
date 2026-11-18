@@ -1,0 +1,50 @@
+/* Naginata 薙刀 — layer-specific bits (everything else comes from app.css). */
+input[type=date] {
+  width: 100%; min-height: 42px; padding: 9px 11px; border-radius: var(--r); border: 1px solid var(--line-2);
+  background: #070b11; color: var(--text); outline: none; font-size: 16px; color-scheme: dark;
+}
+input[type=date]:focus { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(var(--acc-rgb), .14); }
+@media (min-width: 960px) { input[type=date] { font-size: 13.5px; } }
+
+.ng-sum { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font: 11.5px/1.5 var(--mono); color: var(--dim); }
+.ng-sum b { color: var(--text); font-weight: 600; }
+.ng-bad { margin-top: 6px; font-size: 12px; color: var(--crit); word-break: break-word; }
+
+/* grade / score tile */
+.ng-score { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.ng-grade { flex: none; width: 76px; height: 76px; border-radius: 8px; display: grid; place-items: center; font: 800 42px/1 var(--mono);
+  border: 2px solid currentColor; background: rgba(255,255,255,.02); }
+.ng-grade.g-A { color: var(--ok); } .ng-grade.g-B { color: #9be15d; } .ng-grade.g-C { color: var(--med); }
+.ng-grade.g-D { color: var(--high); } .ng-grade.g-F, .ng-grade.g-crit { color: var(--crit); }
+.ng-grade.g-none { color: var(--dim); }
+.ng-grade small { font-size: 11px; letter-spacing: .1em; }
+.ng-score .col { flex: 1; min-width: 180px; }
+
+/* CVSS metric pickers */
+.ng-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; }
+@media (max-width: 639px) { .ng-metrics { grid-template-columns: minmax(0, 1fr); } }
+.ng-metric .lbl { margin-bottom: 5px; }
+.ng-metric .seg { display: flex; width: 100%; }
+.ng-metric .seg button { flex: 1 1 auto; padding: 8px 6px; min-height: 38px; }
+.ng-cvss-n { font: 800 34px/1 var(--mono); }
+.ng-cvss-n.critical { color: var(--crit); } .ng-cvss-n.high { color: var(--high); } .ng-cvss-n.medium { color: var(--med); }
+.ng-cvss-n.low { color: var(--low); } .ng-cvss-n.info { color: var(--dim); }
+.ng-vec { font: 12.5px/1.5 var(--mono); word-break: break-all; color: var(--text); }
+
+/* JWT parts */
+.ng-tok { font: 12.5px/1.55 var(--mono); word-break: break-all; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r); background: #05080c; }
+.ng-tok .h { color: #ff6b7a; } .ng-tok .p { color: #c792ea; } .ng-tok .s { color: #2fd6cf; } .ng-tok i { color: var(--dim); font-style: normal; }
+
+/* report findings list */
+.ng-flist .finding { cursor: pointer; }
+.ng-flist .finding.on { border-color: var(--acc); box-shadow: 0 0 0 1px rgba(var(--acc-rgb), .35) inset; }
+.ng-asset-bad { color: var(--crit); }
+.ng-tbl-in select, .ng-tbl-in input { min-height: 34px; padding: 5px 8px; }
+@media (max-width: 959px) { .ng-tbl-in select, .ng-tbl-in input { min-height: 40px; } }
+.ng-sticky { position: sticky; top: calc(var(--header-h) + var(--safe-t) + 6px); z-index: 3; box-shadow: 0 8px 18px rgba(0,0,0,.45); }
+@media (max-width: 639px) { .ng-sticky { position: static; box-shadow: none; } }
+body[data-layer="naginata"] .finding .det { overflow-wrap: anywhere; }
+details.panel > summary { list-style: none; }
+details.panel > summary::-webkit-details-marker { display: none; }
+details.panel > summary::after { content: "▾"; margin-left: auto; color: var(--dim); }
+details.panel:not([open]) > summary::after { content: "▸"; }

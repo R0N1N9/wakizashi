@@ -1,0 +1,31 @@
+/* Yoroi (defense) — bits the design system lacks: timeline histogram, severity pills, event table, rule editor. */
+.yo-hist { display: flex; align-items: flex-end; gap: 2px; height: 90px; padding: 4px 0; border-bottom: 1px solid var(--line); }
+.yo-hist i { flex: 1 1 0; min-width: 1px; background: var(--acc); opacity: .85; border-radius: 2px 2px 0 0; box-shadow: 0 0 6px rgba(var(--acc-rgb), .35); }
+.yo-hist i:hover { opacity: 1; }
+.yo-hist-x { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; font: 11px/1.2 var(--mono); color: var(--faint); }
+
+.yo-pills { gap: 4px; }
+.yo-pills button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 8px; border-radius: var(--r); cursor: pointer;
+  border: 1px solid var(--line-2); background: transparent; color: var(--text); opacity: .45; font-size: 12px; }
+.yo-pills button.on { opacity: 1; background: var(--surface-2); }
+.yo-fbtn { gap: 6px; }
+.yo-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+
+.yo-evt .tbl td { font-size: 12.5px; }
+.yo-evt tr[data-i] { cursor: pointer; }
+.yo-evt tr[data-i]:hover td { background: rgba(255,255,255,.025); }
+.yo-evt td.yo-msg { min-width: 260px; max-width: 520px; word-break: break-word; font-family: var(--mono); font-size: 12px; }
+tr.yo-flag td:first-child { box-shadow: inset 3px 0 0 var(--high); }
+tr.yo-sel td { background: rgba(var(--acc-rgb), .08); }
+.yo-kv-scroll { max-height: 46vh; overflow: auto; }
+textarea.yo-over { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(var(--acc-rgb), .2); }
+
+textarea.yo-code { min-height: 380px; font-size: 12.5px; white-space: pre; overflow-wrap: normal; overflow-x: auto; tab-size: 4; }
+.yo-link { border: 0; background: none; padding: 4px 0; color: var(--acc); cursor: pointer; font: 600 13px/1.3 var(--sans); text-align: left; word-break: break-word; }
+.yo-link:hover { text-decoration: underline; }
+.yo-split { align-items: start; }
+.yo-details summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; }
+.yo-cand .badge.fill.info { background: var(--info); color: #001226; }
+.yo-cand .badge.fill.warn { background: var(--med); color: #1a1400; }
+.finding header input[type=checkbox] { flex: none; }
+@media (max-width: 639px) { .yo-hist { height: 70px; } .yo-fbtn { width: 100%; } }

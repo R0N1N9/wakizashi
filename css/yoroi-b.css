@@ -1,0 +1,67 @@
+/* Yoroi part B — YARA, Phish, Block, Respond, Posture. Only what the design system lacks. */
+.yb-split { align-items: start; }
+.yb-details summary { cursor: pointer; min-height: 36px; display: flex; align-items: center; }
+textarea.yb-code { min-height: 360px; font-size: 12.5px; white-space: pre; overflow-wrap: normal; overflow-x: auto; tab-size: 4; }
+textarea.yb-over { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(var(--acc-rgb), .2); }
+
+/* YARA */
+.yb-hit { border-top: 1px dashed var(--line); padding: 8px 0 4px; }
+.yb-hit .tablewrap { margin-top: 6px; }
+.yb-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 6px; cursor: pointer; background: var(--surface-hi); min-height: 44px; }
+.yb-item:hover { border-color: var(--line-2); }
+.yb-item.on { border-color: var(--acc); background: rgba(var(--acc-rgb), .07); }
+.yb-item input { flex: none; }
+
+/* PHISH */
+.yb-verdict { border-left: 3px solid var(--dim); }
+.yb-verdict.crit { border-left-color: var(--crit); }
+.yb-verdict.high { border-left-color: var(--high); }
+.yb-verdict.ok { border-left-color: var(--ok); }
+.badge.yb-big { font-size: 12px; padding: 7px 11px; }
+.badge.fill.high.yb-big, .badge.fill.ok.yb-big { color: #0b0f14; }
+.yb-score { align-items: flex-end; text-align: right; }
+.yb-score b { font-size: 26px; line-height: 1; }
+.yb-iocrow { display: grid; grid-template-columns: minmax(90px, 120px) minmax(0, 1fr); gap: 8px; align-items: start; margin-bottom: 6px; }
+.yb-iocrow .chip { word-break: break-all; }
+.yb-preview { max-height: 180px; overflow: auto; }
+
+/* BLOCK */
+.yb-fmts { gap: 6px; }
+.yb-rej { max-height: 160px; overflow: auto; color: var(--med); }
+
+/* RESPOND */
+.yb-board { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 959px) { .yb-board { grid-template-columns: minmax(0, 1fr); } }
+.yb-inc { display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 10px; margin-bottom: 6px; cursor: pointer; color: var(--text);
+  border: 1px solid var(--line); border-left: 3px solid var(--dim); border-radius: var(--r); background: var(--surface-hi); font: inherit; min-height: 44px; }
+.yb-inc:hover { border-color: var(--line-2); }
+.yb-inc.on { border-color: var(--acc); background: rgba(var(--acc-rgb), .07); }
+.yb-inc.critical { border-left-color: var(--crit); } .yb-inc.high { border-left-color: var(--high); } .yb-inc.medium { border-left-color: var(--med); } .yb-inc.low { border-left-color: var(--low); }
+.yb-pb { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.yb-pb:last-child { border-bottom: 0; }
+input.yb-title { font-size: 16px !important; font-weight: 600; }
+.yb-phases { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+.yb-phases button { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 48px; padding: 6px 2px; cursor: pointer; border-radius: var(--r);
+  border: 1px solid var(--line-2); background: transparent; color: var(--dim); font: 600 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; min-width: 0; }
+.yb-phases button b { font-size: 13px; }
+.yb-phases button span { overflow: hidden; text-overflow: ellipsis; max-width: 100%; white-space: nowrap; }
+.yb-phases button.past { color: var(--ok); border-color: rgba(65,211,146,.4); }
+.yb-phases button.on { color: #04080c; background: var(--acc); border-color: var(--acc); box-shadow: 0 0 12px rgba(var(--acc-rgb), .35); }
+.yb-phase { margin-bottom: 12px; }
+.yb-phase.cur .lbl { color: var(--acc); }
+.yb-task { display: flex; gap: 10px; align-items: flex-start; padding: 7px 4px; border-bottom: 1px solid rgba(27,38,52,.6); cursor: pointer; font-size: 13px; min-height: 40px; flex-wrap: wrap; }
+.yb-task input { margin-top: 1px; flex: none; }
+.yb-task > span { flex: 1; min-width: 160px; }
+.yb-task.done > span { color: var(--faint); text-decoration: line-through; text-decoration-color: rgba(255,255,255,.25); }
+.yb-tl { border: 1px solid rgba(var(--acc-rgb), .45); background: none; color: var(--acc); border-radius: 3px; font: 700 9.5px/1 var(--mono); letter-spacing: .1em; padding: 5px 7px; cursor: pointer; min-height: 26px; }
+.yb-x { border: 0; background: none; color: var(--faint); cursor: pointer; padding: 2px 4px; margin-left: 2px; font-size: 11px; min-height: 24px; }
+.yb-x:hover { color: var(--crit); }
+.yb-tl-list { max-height: 420px; overflow: auto; }
+.yb-ev { border-left: 2px solid var(--line-2); padding: 4px 0 8px 10px; }
+.yb-ev.k-action { border-left-color: var(--acc); } .yb-ev.k-finding { border-left-color: var(--high); } .yb-ev.k-evidence { border-left-color: var(--ok); }
+
+/* POSTURE */
+.yb-ring { width: 128px; height: 128px; flex: none; }
+.yb-fixes { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; }
+.yb-fixes li::marker { color: var(--acc); font-family: var(--mono); font-weight: 700; }
+@media (max-width: 639px) { .yb-ring { width: 104px; height: 104px; } .yb-iocrow { grid-template-columns: minmax(0, 1fr); gap: 2px; } }

