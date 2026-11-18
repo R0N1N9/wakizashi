@@ -114,12 +114,17 @@ Zero dependencies, no build step. See [`CLAUDE.md`](CLAUDE.md) for the module co
 node tests/run.js            # unit tests (engines run in Node's vm)
 node tools/sync.js           # regenerate script tags + service-worker precache after adding files
 node tools/sync.js --check   # what CI runs
+node tests/e2e/smoke.js      # optional browser smoke test: every screen at 1360×900 + 390×844 (needs Playwright)
 ```
+
+The smoke test fails on console/page errors, failed requests, a tool's error callout, horizontal overflow, or a
+Naginata tool that renders without the rules-of-engagement gate. `SHOTS=dir` saves a screenshot of every screen;
+`ONLY=yoroi` limits it to matching routes.
 
 ## Deploy
 
 `.github/workflows/pages.yml` publishes `main` to GitHub Pages. One-time setup: **Settings → Pages → Source:
-GitHub Actions**. CI (`ci.yml`) runs syntax checks, the sync check and the unit tests on every PR.
+GitHub Actions**. CI (`ci.yml`) runs syntax checks, the sync check and the unit tests on every PR, plus the browser smoke test.
 
 ---
 

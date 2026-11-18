@@ -38,6 +38,7 @@ js/views/<layer>/_kit.js     optional shared helpers for a layer ("_" sorts firs
 js/shell.js           layers, router, chrome, home grids, settings, PWA — loads last
 tools/sync.js         regenerates the generated bits — run after adding/removing/renaming files
 tests/run.js          zero-dep test runner; tests/*.test.js
+tests/e2e/smoke.js    Playwright smoke test of every screen (optional locally, runs in CI)
 ```
 
 **After adding, removing or renaming any file in `js/eng`, `js/views/*` or `css/`: run `node tools/sync.js`.**
@@ -104,6 +105,7 @@ CI fails if `node tools/sync.js --check` reports drift.
 ```bash
 node tests/run.js
 node tools/sync.js --check
+node tests/e2e/smoke.js        # every screen, desktop + phone; fails on console errors / overflow (needs Playwright)
 python3 -m http.server 8800    # then open http://localhost:8800 (service worker needs localhost/https)
 ```
 
