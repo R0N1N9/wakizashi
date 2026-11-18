@@ -19,6 +19,8 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=1">
 <link rel="stylesheet" href="css/app.css">
 <!--STYLES-->
+<link rel="stylesheet" href="css/naginata.css">
+<link rel="stylesheet" href="css/yoroi.css">
 <!--/STYLES-->
 </head>
 <body data-layer="yumi">
@@ -51,6 +53,7 @@
 <!-- engines (pure, no DOM) -->
 <!--ENGINES-->
 <script src="js/eng/block.js"></script>
+<script src="js/eng/cipher.js"></script>
 <script src="js/eng/cvss.js"></script>
 <script src="js/eng/detect.js"></script>
 <script src="js/eng/headers.js"></script>
@@ -58,8 +61,11 @@
 <script src="js/eng/jwt.js"></script>
 <script src="js/eng/kpack.js"></script>
 <script src="js/eng/logs.js"></script>
+<script src="js/eng/passgen.js"></script>
+<script src="js/eng/phish.js"></script>
 <script src="js/eng/pivot.js"></script>
 <script src="js/eng/playbooks.js"></script>
+<script src="js/eng/posture.js"></script>
 <script src="js/eng/regexgen.js"></script>
 <script src="js/eng/scope.js"></script>
 <script src="js/eng/scrub.js"></script>
@@ -67,6 +73,7 @@
 <script src="js/eng/stix.js"></script>
 <script src="js/eng/subnet.js"></script>
 <script src="js/eng/synth.js"></script>
+<script src="js/eng/trace.js"></script>
 <script src="js/eng/transforms.js"></script>
 <script src="js/eng/triage.js"></script>
 <script src="js/eng/words.js"></script>
@@ -85,6 +92,15 @@
 <script src="js/views/yumi/triage.js"></script>
 <script src="js/views/yumi/workbench.js"></script>
 <script src="js/views/yumi/yara.js"></script>
+<script src="js/views/yoroi/hunt.js"></script>
+<script src="js/views/yoroi/rules.js"></script>
+<script src="js/views/yoroi/synth.js"></script>
+<script src="js/views/naginata/cvss.js"></script>
+<script src="js/views/naginata/headers.js"></script>
+<script src="js/views/naginata/jwt.js"></script>
+<script src="js/views/naginata/report.js"></script>
+<script src="js/views/naginata/scope.js"></script>
+<script src="js/views/naginata/subnet.js"></script>
 <!--/VIEWS-->
 <!-- shell boots last -->
 <script src="js/shell.js"></script>

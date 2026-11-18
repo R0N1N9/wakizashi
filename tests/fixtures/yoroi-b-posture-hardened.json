@@ -1,0 +1,15 @@
+{
+  "now": "2026-11-18T12:00:00Z",
+  "secureContext": true, "protocol": "https:", "origin": "https://wakizashi.example",
+  "cookieEnabled": true, "dnt": "1", "gpc": true,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:157.0) Gecko/20100101 Firefox/157.0",
+  "uaData": null,
+  "webdriver": false,
+  "storage": { "persisted": true, "quota": 2147483648, "usage": 120000 },
+  "permissions": { "camera": "prompt", "microphone": "prompt", "geolocation": "denied", "notifications": "denied", "clipboard-read": "unsupported", "midi": "prompt" },
+  "webrtc": { "available": true, "leak": "mdns", "ips": [] },
+  "screen": { "w": 1920, "h": 1080, "dpr": 1, "colorDepth": 24 },
+  "timezone": "UTC", "languages": ["en-US", "en"], "hardwareConcurrency": 4, "deviceMemory": null, "plugins": 5,
+  "serviceWorker": { "supported": true, "controlled": true }, "standalone": true, "crossOriginIsolated": false,
+  "apis": { "platformAuthenticator": true, "getBattery": false, "bluetooth": false, "usb": false, "serial": false, "hid": false }
+}

@@ -1,0 +1,15 @@
+{
+  "now": "2026-11-18T12:00:00Z",
+  "secureContext": false, "protocol": "http:", "origin": "http://192.168.1.5:8080",
+  "cookieEnabled": true, "dnt": null,
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+  "uaData": { "platform": "Windows", "platformVersion": "10.0.0", "mobile": false, "highEntropy": true, "brands": [{ "brand": "Google Chrome", "version": "118" }] },
+  "webdriver": false,
+  "storage": { "persisted": false },
+  "permissions": { "camera": "granted", "microphone": "granted", "geolocation": "granted", "notifications": "granted", "clipboard-read": "prompt", "midi": "prompt" },
+  "webrtc": { "available": true, "leak": "private", "ips": ["192.168.1.23"] },
+  "screen": { "w": 3440, "h": 1440, "dpr": 1.25, "colorDepth": 30 },
+  "timezone": "Europe/Berlin", "languages": ["de-DE", "de", "en-US", "en"], "hardwareConcurrency": 24, "deviceMemory": 8, "plugins": 5,
+  "serviceWorker": { "supported": true, "controlled": false }, "standalone": false,
+  "apis": { "platformAuthenticator": false, "getBattery": true, "bluetooth": true, "usb": true, "serial": true, "hid": true, "webgl": true, "webglRenderer": "ANGLE (NVIDIA GeForce RTX 4090)" }
+}

@@ -43,3 +43,8 @@ input[type=date]:focus { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(va
 @media (max-width: 959px) { .ng-tbl-in select, .ng-tbl-in input { min-height: 40px; } }
 .ng-sticky { position: sticky; top: calc(var(--header-h) + var(--safe-t) + 6px); z-index: 3; box-shadow: 0 8px 18px rgba(0,0,0,.45); }
 @media (max-width: 639px) { .ng-sticky { position: static; box-shadow: none; } }
+body[data-layer="naginata"] .finding .det { overflow-wrap: anywhere; }
+details.panel > summary { list-style: none; }
+details.panel > summary::-webkit-details-marker { display: none; }
+details.panel > summary::after { content: "▾"; margin-left: auto; color: var(--dim); }
+details.panel:not([open]) > summary::after { content: "▸"; }

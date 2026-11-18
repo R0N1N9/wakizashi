@@ -1,6 +1,6 @@
 /* Wakizashi service worker — offline-first app shell.
    PRECACHE and VERSION are rewritten by `node tools/sync.js`; don't edit those two lines by hand. */
-const VERSION = "wkz-9240dcd21526";
+const VERSION = "wkz-4fa58cdfef8a";
 const PRECACHE = [/*PRECACHE*/
   "./",
   "index.html",
@@ -14,7 +14,10 @@ const PRECACHE = [/*PRECACHE*/
   "assets/icon-maskable-512.png",
   "assets/apple-touch-icon.png",
   "assets/favicon-32.png",
+  "css/naginata.css",
+  "css/yoroi.css",
   "js/eng/block.js",
+  "js/eng/cipher.js",
   "js/eng/cvss.js",
   "js/eng/detect.js",
   "js/eng/headers.js",
@@ -22,8 +25,11 @@ const PRECACHE = [/*PRECACHE*/
   "js/eng/jwt.js",
   "js/eng/kpack.js",
   "js/eng/logs.js",
+  "js/eng/passgen.js",
+  "js/eng/phish.js",
   "js/eng/pivot.js",
   "js/eng/playbooks.js",
+  "js/eng/posture.js",
   "js/eng/regexgen.js",
   "js/eng/scope.js",
   "js/eng/scrub.js",
@@ -31,6 +37,7 @@ const PRECACHE = [/*PRECACHE*/
   "js/eng/stix.js",
   "js/eng/subnet.js",
   "js/eng/synth.js",
+  "js/eng/trace.js",
   "js/eng/transforms.js",
   "js/eng/triage.js",
   "js/eng/words.js",
@@ -46,6 +53,15 @@ const PRECACHE = [/*PRECACHE*/
   "js/views/yumi/triage.js",
   "js/views/yumi/workbench.js",
   "js/views/yumi/yara.js",
+  "js/views/yoroi/hunt.js",
+  "js/views/yoroi/rules.js",
+  "js/views/yoroi/synth.js",
+  "js/views/naginata/cvss.js",
+  "js/views/naginata/headers.js",
+  "js/views/naginata/jwt.js",
+  "js/views/naginata/report.js",
+  "js/views/naginata/scope.js",
+  "js/views/naginata/subnet.js",
 ];
 
 self.addEventListener("install", (e) => {

@@ -270,11 +270,13 @@
       const fm = /from\s+(\S+)(?:\s+\(([^)]*)\))?/i.exec(r);
       const by = /\bby\s+(\S+)/i.exec(r);
       const ips = [];
-      for (const m of (fm ? fm[0] : "").matchAll(/\[?((?:\d{1,3}\.){3}\d{1,3}|[0-9a-f:]{6,})\]?/gi)) {
+      // the connecting IP usually sits in the "(rdns [ip])" comment; the HELO literal may be private/forged
+      for (const m of ((fm && fm[2] ? fm[2] + " " : "") + (fm ? fm[0] : "")).matchAll(/\[?((?:\d{1,3}\.){3}\d{1,3}|[0-9a-f:]{6,})\]?/gi)) {
         const i = m[1];
         if (/^(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)$/.test(i) || (i.match(/:/g) || []).length >= 2) ips.push(i.replace(/^ipv6:/i, ""));
       }
-      hops.push({ from: fm ? fm[1] : null, by: by ? by[1] : null, ip: ips[0] || null, date: dt != null ? new Date(dt).toISOString().replace(/\.000Z$/, "Z") : datePart || null, _dt: dt, raw: r });
+      const uips = uniq(ips);
+      hops.push({ from: fm ? fm[1] : null, by: by ? by[1] : null, ip: uips.find(isPublicIp) || uips[0] || null, ips: uips, date: dt != null ? new Date(dt).toISOString().replace(/\.000Z$/, "Z") : datePart || null, _dt: dt, raw: r });
     }
     hops.reverse();      // chronological: origin first
     let prev = null;

@@ -1,4 +1,6 @@
 // BLOCK countermeasure builder — mirrors Katana tests/test_defense.py::TestBlock plus safety cases.
+(() => {
+"use strict";
 const K = W.eng.block;
 
 test("classify + safety (Katana test_classify_and_safety)", () => {
@@ -96,3 +98,4 @@ test("Sigma output round-trips through the sigma engine when present", () => {
   const rules = (r && (r.rules || r[0])) || r;
   if (Array.isArray(rules)) assert.equal(rules.length, 3);
 });
+})();

@@ -1,4 +1,6 @@
 // PHISH triage — mirrors Katana tests/test_defense.py::TestPhish plus header/MIME coverage.
+(() => {
+"use strict";
 const P = W.eng.phish;
 
 test("lookalike + link-text mismatch (Katana test_lookalike)", () => {
@@ -40,12 +42,12 @@ test("full phish fixture: auth, hops, origin IP, encoded subject, QP, forms, lur
   assert.equal(r.subject, "Urgent: your account will be suspended within 24 hours");
   assert.deepEqual({ spf: h.auth.spf, dkim: h.auth.dkim, dmarc: h.auth.dmarc }, { spf: "fail", dkim: "none", dmarc: "fail" });
   assert.equal(h.hops.length, 3);
-  assert.equal(h.hops[0].ip, "192.168.1.20");             // chronological: origin first
+  assert.equal(h.hops[0].ip, "45.9.148.108");             // chronological: origin first; public IP preferred over HELO literal
+  assert.deepEqual(h.hops[0].ips, ["45.9.148.108", "192.168.1.20"]);
   assert.equal(h.hops[0].by, "mail.paypa1-secure.top");
   assert.equal(h.hops[1].delay_s, 2);
   assert.equal(h.hops[2].delay_s, 53);
-  assert.equal(h.origin_ip, "203.0.113.99".replace("203.0.113.99", h.origin_ip));  // first public hop IP
-  assert.ok(["45.9.148.108", "203.0.113.99"].includes(h.origin_ip) || h.origin_ip === null);
+  assert.equal(h.origin_ip, "45.9.148.108");             // first public hop IP
   const ht = h.flags.map((f) => f.text).join(" | ");
   assert.ok(ht.includes("SPF fail") && ht.includes("DMARC fail"), ht);
   assert.ok(ht.includes("Reply-To domain (paypa1-secure.top) differs from From (paypal.com)"), ht);
@@ -100,7 +102,7 @@ test("url flags: raw IP, @ authority, nested subdomains, brand mention", () => {
 });
 
 test("MIME details: RFC 2231 filenames, HTML attachments, zip with macro, body-only paste", () => {
-  const zip = Buffer.concat([Buffer.from([0x50, 0x4b, 3, 4, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0]), Buffer.from("word/vbaProject.bin")]);
+  const zip = Buffer.concat([Buffer.from([0x50, 0x4b, 3, 4, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0]), Buffer.from("word/vbaProject.bin")]);
   const eml = "From: a@b.example\nSubject: docs\nContent-Type: multipart/mixed; boundary=\"Q\"\n\n--Q\nContent-Type: text/plain\n\nhi\n" +
     "--Q\nContent-Type: text/html; name=login.html\nContent-Disposition: attachment; filename*=utf-8''Rechnung%20login.html\n\n<html><form action=x><input type=password></form><script>location.href=atob('aA==')</script></html>\n" +
     "--Q\nContent-Type: application/zip\nContent-Disposition: attachment; filename=\"a.zip\"\nContent-Transfer-Encoding: base64\n\n" + zip.toString("base64") + "\n--Q--\n";
@@ -124,3 +126,4 @@ test("attachment YARA hits feed the verdict", () => {
   assert.ok(a.yara.some((y) => y.rule === "Aegis_Webshell_Generic"));
   assert.ok(a.flags.some((f) => f.level === "high" && /YARA Aegis_Webshell_Generic/.test(f.text)));
 });
+})();

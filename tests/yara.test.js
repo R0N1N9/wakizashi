@@ -1,4 +1,6 @@
 // YARA-lite engine — mirrors Katana tests/test_defense.py::TestYara plus extra coverage.
+(() => {
+"use strict";
 const Y = W.eng.yara;
 const B = (s) => Uint8Array.from(Buffer.from(s, "latin1"));
 const names = (hits) => hits.map((h) => h.rule);
@@ -152,3 +154,4 @@ test("runtime errors are reported per rule, not thrown", () => {
   assert.ok(hits.some((h) => h.rule === "bad" && /boom/.test(h.error)));
   assert.ok(hits.some((h) => h.rule === "ok"));
 });
+})();

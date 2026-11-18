@@ -194,7 +194,7 @@
       for (const e of evs) {
         const c = cmd(e);
         if (e.action === "log_clear" || CLEAR_RX.test(c))
-          out.push(finding(d, `${e.eid || "Command"}: ${(c || e.msg).slice(0, 120)}`, [e.i], `Host ${e.host || "?"} user ${e.user || "?"}`, { entities: { user: one(e.user) } }));
+          out.push(finding(d, `${e.eid || "Command"}: ${(c || e.msg || (e.fmt === "cloudtrail" ? "" : "event log cleared")).slice(0, 120)}`, [e.i], `Host ${e.host || "?"} user ${e.user || "?"}`, { entities: { user: one(e.user) } }));
       }
     });
 
