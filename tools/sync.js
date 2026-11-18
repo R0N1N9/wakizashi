@@ -53,5 +53,13 @@ for (const [f, txt] of files) {
   const cur = fs.readFileSync(path.join(ROOT, f), "utf8");
   if (cur !== txt) { stale.push(f); if (!check) fs.writeFileSync(path.join(ROOT, f), txt); }
 }
+// Every tool documents itself for Settings → Tool guide: W.tool(..., { help: { steps: [...], tips: [...] } }).
+const undocumented = views.filter((f) => !/\/_/.test(f)).filter((f) => {
+  const src = fs.readFileSync(path.join(ROOT, f), "utf8");
+  if (!/W\.tool\(/.test(src)) return false;
+  const m = /help:\s*\{\s*steps:\s*(\[[^\n]*\]),\s*\n\s*tips:\s*(\[[^\n]*\]),/.exec(src);
+  try { return !(m && JSON.parse(m[1]).length >= 2 && Array.isArray(JSON.parse(m[2]))); } catch { return true; }
+});
+if (undocumented.length) { console.error(`tool guide: add help { steps, tips } (2+ steps) to: ${undocumented.join(", ")}`); process.exit(1); }
 if (check && stale.length) { console.error(`out of date: ${stale.join(", ")} — run: node tools/sync.js`); process.exit(1); }
 console.log(`${check ? "ok" : "synced"}: ${engines.length} engine(s), ${views.length} view file(s), cache ${version}${stale.length && !check ? " (updated " + stale.join(", ") + ")" : ""}`);

@@ -8,6 +8,10 @@
   W.tool("naginata", "subnet", {
     name: "Subnet", order: 20,
     desc: "IPv4 + IPv6 CIDR calculator — hosts, masks, binary view, splitting, supernets and range ↔ CIDR.",
+    help: {
+      steps: ["Enter an address or CIDR (IPv4 or IPv6) and press Calculate for hosts, masks and the binary view.", "Use the tabs to Split a network, Summarise/aggregate several, or convert Range ↔ CIDR.", "Check scope sends the network to the Scope board's checker."],
+      tips: ["Everything is computed locally."],
+    },
     icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18M7.5 7.5h0M16.5 16.5h0"/>',
     render(el, arg) {
       W.roeGate(el, () => {

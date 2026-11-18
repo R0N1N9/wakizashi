@@ -17,6 +17,10 @@
   W.tool("yoroi", "synth", {
     name: "Synth", order: 30,
     desc: "Turn marked malicious log lines into a graded Sigma rule (precision / recall / F1).",
+    help: {
+      steps: ["Paste a log and use Pick events to mark the malicious lines.", "Press Synthesise — candidate Sigma rules are drafted and graded against the whole log (precision, recall, F1).", "Copy the best rule, download it as .yml, or save it to your Sigma rules."],
+      tips: ["Mark a few clearly malicious events and leave benign ones unmarked — the grade tells you how well each rule separates them."],
+    },
     icon: '<path d="M4 6h10M4 12h7M4 18h10"/><path d="M18 4v4M16 6h4M17 13l1.2 2.6L21 17l-2.8 1.2L17 21l-1.2-2.8L13 17l2.8-1.4z"/>',
     render(el, arg) {
       if (arg && typeof arg === "object" && arg.text != null) STATE = { text: String(arg.text), fmt: arg.fmt || "auto", title: arg.title || "", idx: (arg.indices || []).map(Number), baseline: "", res: null, from: arg.from };

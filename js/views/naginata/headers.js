@@ -19,6 +19,10 @@ Set-Cookie: prefs=dark; Secure; SameSite=Lax`;
   W.tool("naginata", "headers", {
     name: "Headers", order: 40,
     desc: "Review pasted HTTP response headers — CSP, HSTS, framing, CORS, cookies, disclosure — with an A–F grade and fixes.",
+    help: {
+      steps: ["Paste the response headers of a site you're assessing (curl -sI, DevTools → Network, or Burp).", "Press Analyse for an A–F grade with findings on CSP, HSTS, framing, CORS, cookies and disclosure.", "Copy the result as Markdown or Send to report."],
+      tips: [],
+    },
     icon: '<path d="M4 5h16M4 10h10M4 15h13M4 20h7"/><path d="M18 14l2 2 3-4" transform="translate(-2 2)"/>',
     render(el, arg) {
       W.roeGate(el, () => {

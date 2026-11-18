@@ -31,6 +31,10 @@
   W.tool("yumi", "kev", {
     name: "KEV", order: 80,
     desc: "Search CISA's Known Exploited Vulnerabilities catalog — cached for offline use.",
+    help: {
+      steps: ["Download the CISA Known Exploited Vulnerabilities catalog (one press — it's then cached for offline use).", "Search by CVE, vendor, product or keyword.", "Export the results as CSV."],
+      tips: ["Refresh the catalog every so often to pick up newly added CVEs."],
+    },
     icon: '<path d="M12 2 4 5v6c0 5 3.4 9 8 10 4.6-1 8-5 8-10V5z"/><path d="M12 8v5M12 16v.5"/>',
     render(el, arg) {
       const fetched = W.store.get("yumi.kev.fetched");

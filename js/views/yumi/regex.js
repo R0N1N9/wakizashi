@@ -6,6 +6,10 @@
   W.tool("yumi", "regex", {
     name: "Regex", order: 70,
     desc: "Turn an example (mutex, UA, path, C2 URI) into ranked regexes for YARA and hunt queries.",
+    help: {
+      steps: ["Paste one literal example — a mutex, user-agent, path or C2 URI — and press Build.", "Pick from the ranked regexes (best first; each has a false-positive rating).", "Test it against your own lines, then copy it as a regex or a YARA string."],
+      tips: [],
+    },
     icon: '<path d="M4 7h6M7 4v6M5 5l4 4M9 5 5 9"/><circle cx="16" cy="17" r="3"/><path d="M14 7l6 0"/>',
     render(el, arg) {
       el.innerHTML = ui.head("Regex", "Pattern builder", "Give it one literal example; get candidate regexes ranked best-first, each checked against your input with a false-positive rating — then test against your own lines.") + `

@@ -17,6 +17,10 @@
   W.tool("naginata", "cvss", {
     name: "CVSS", order: 30,
     desc: "CVSS v3.1 calculator — base, temporal and environmental scores, severity, vector parse and export.",
+    help: {
+      steps: ["Pick the base metrics (and optional temporal/environmental ones) — or paste a vector and press Load.", "Read the score and severity.", "Copy the vector, or start a New finding in Report with it."],
+      tips: ["v3.0 vectors are accepted and scored as v3.1."],
+    },
     icon: '<path d="M4 20h16"/><path d="M6 16v-4M10 16V8M14 16v-6M18 16V5"/>',
     render(el, arg) {
       W.roeGate(el, () => {

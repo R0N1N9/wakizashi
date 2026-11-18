@@ -47,6 +47,10 @@
   W.tool("kemuridama", "scrub", {
     name: "Scrub", order: 10,
     desc: "See the hidden metadata in photos and documents — GPS, camera serials, authors — and download a losslessly cleaned copy.",
+    help: {
+      steps: ["Drop photos, PDFs or Office files (or Try a sample photo).", "Review the GPS, camera serials, authors and other hidden fields.", "Download a clean copy."],
+      tips: ["Files are read in this tab only — nothing is uploaded."],
+    },
     icon: '<path d="M4 20h16"/><path d="M7 16l9-9 3 3-9 9H7z"/><path d="M14 9l3 3"/><path d="M5 5l2 2M9 3v2M3 9h2"/>',
     render(el) {
       const files = []; // {id, name, bytes, rec}

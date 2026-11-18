@@ -55,6 +55,10 @@
   W.tool("kemuridama", "mirror", {
     name: "Mirror", order: 30,
     desc: "What every website can read about this browser — each signal rated for how identifying it is, with a uniqueness estimate and fixes.",
+    help: {
+      steps: ["Open the tool to see what this browser hands every site, each signal rated for how identifying it is.", "Read the uniqueness estimate and apply the fixes; Re-scan to compare.", "Persona section: add personas (or import saved decoys) and Compare writing samples."],
+      tips: [],
+    },
     icon: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2"/>',
     render(el) {
       let tab = W.kmz.store("mirror", "tab", "fp");

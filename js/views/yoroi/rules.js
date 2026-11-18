@@ -38,6 +38,10 @@ level: high`;
   W.tool("yoroi", "rules", {
     name: "Rules", order: 20,
     desc: "Toggle detections, tune thresholds, write and test Sigma rules for HUNT.",
+    help: {
+      steps: ["Switch built-in detections on or off and tune their thresholds.", "Write a new Sigma rule (or Import .yml), Validate it, and Run test against sample logs.", "Save — HUNT uses your library straight away."],
+      tips: ["Export your rules to back them up; Reset to defaults undoes tuning."],
+    },
     icon: '<path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
     render(el, arg) {
       const fromArg = typeof arg === "string" && /title\s*:/.test(arg);

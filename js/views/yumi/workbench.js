@@ -6,6 +6,10 @@
   W.tool("yumi", "workbench", {
     name: "Workbench", order: 20,
     desc: "Report → ATT&CK mapping, attribution, Sigma + YARA, a STIX bundle and a ready-made case.",
+    help: {
+      steps: ["Paste a threat report, load a file, or Fetch a CTI article by URL.", "Press Enrich to map behaviour to MITRE ATT&CK, suggest attribution and draft Sigma + YARA.", "Export a Markdown brief or STIX bundle, add the rules to your YARA library, or send them to Yoroi to hunt logs or scan files."],
+      tips: ["Inferred techniques are suggestions — check them against the report.", "Fetch is the only step that uses the network."],
+    },
     icon: '<path d="M3 7l6-4 6 4M3 7v10l6 4 6-4M3 7l6 4 6-4M9 11v10"/><path d="M16 14l2 2 4-4"/>',
     render(el, arg) {
       el.innerHTML = ui.head("Workbench", "Enrichment", "Paste a threat report — or fetch a CTI article. Wakizashi maps behaviour to MITRE ATT&CK (labelled <i>and</i> inferred), notes the actor and tooling, drafts Sigma and YARA with false-positive risk, then builds a case and a STIX 2.1 bundle for OpenCTI.") + `

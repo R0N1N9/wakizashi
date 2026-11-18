@@ -6,6 +6,10 @@
   W.tool("yumi", "toolkit", {
     name: "Toolkit", order: 60,
     desc: "CyberChef-style transform chain: Base64, hex, XOR, gzip, URL, PowerShell -enc, hashes, refang…",
+    help: {
+      steps: ["Type or paste input (or Load file).", "Stack operations — Base64, hex, XOR, gzip, URL, PowerShell -enc, hashes, refang… — output updates live.", "Copy or save the result; use Output → input to keep peeling layers."],
+      tips: ["Everything runs in the browser; nothing is sent anywhere."],
+    },
     icon: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>',
     render(el, arg) {
       const ops = W.eng.transforms.OPS;

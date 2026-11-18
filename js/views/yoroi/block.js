@@ -11,6 +11,10 @@
   W.tool("yoroi", "block", {
     name: "Block", order: 60, icon: ICON,
     desc: "Turn IPs, domains, URLs and hashes into firewall, DNS, IDS, Sigma, KQL, EDR and STIX countermeasures.",
+    help: {
+      steps: ["Paste indicators in any shape — defanged, comma, space or newline separated.", "Choose the outputs you need: firewall, DNS, IDS, Sigma, KQL, EDR or STIX.", "Copy or download the generated countermeasures."],
+      tips: ["Private ranges and catch-alls like 0.0.0.0/0 are refused unless you allow them."],
+    },
     render(el, arg) {
       const B = W.eng.block;
       let cur = B.FORMATS.some((f) => f.id === W.store.get(FMT)) ? W.store.get(FMT) : "iptables", res = null;

@@ -6,6 +6,10 @@
   W.tool("kemuridama", "footprint", {
     name: "Footprint", order: 70,
     desc: "Self-OSINT: lookup links for your usernames, emails, phone and name, data-broker opt-outs, and an OPSEC checklist that tracks your progress.",
+    help: {
+      steps: ["Enter your usernames, emails, phone and name, then press Build.", "Open the lookup links to see yourself the way an adversary would, and use the data-broker opt-out links.", "Tick off the OPSEC checklist as you go — progress is saved."],
+      tips: ["Wakizashi only builds links; there's no scraping and no background requests."],
+    },
     icon: '<path d="M12 2a7 7 0 0 0-7 7v10l2.5-2 2.5 2 2-2 2 2 2.5-2 2.5 2V9a7 7 0 0 0-7-7z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/>',
     render(el, arg) {
       let tab = typeof arg === "string" ? "lookup" : W.kmz.store("footprint", "tab", "lookup");

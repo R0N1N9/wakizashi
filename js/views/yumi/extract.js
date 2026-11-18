@@ -11,6 +11,10 @@ PDB C:\\Users\\devbox\\source\\loader\\Release\\loader.pdb  BTC bc1qxy2kgdygjrsq
   W.tool("yumi", "extract", {
     name: "Extract", order: 10,
     desc: "Pull IOCs and host artifacts out of any text — refang, dedupe, export, add to a case.",
+    help: {
+      steps: ["Paste a report, log, email or sandbox dump — or press Load file.", "Press Extract. Defanged indicators are refanged and duplicates removed.", "Copy or export (CSV/JSON), add everything to the active case, or send the text on to Workbench to enrich."],
+      tips: ["Host artifacts (mutexes, PDB paths, pipes, registry keys…) are found too, and each can become a YARA rule.", "Copy defanged when sharing indicators in chat or email."],
+    },
     icon: '<path d="M4 4h16v6H4zM4 14h7v6H4zM15 14h5v6h-5z"/>',
     render(el, arg) {
       el.innerHTML = ui.head("Extract", "Indicators & artifacts", "Paste a report, log, email or sandbox dump. Defanged indicators (<code>hxxp</code>, <code>[.]</code>, <code>[at]</code>) are refanged automatically.") + `

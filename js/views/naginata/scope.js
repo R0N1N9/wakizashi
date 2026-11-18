@@ -14,6 +14,10 @@
   W.tool("naginata", "scope", {
     name: "Scope", order: 10,
     desc: "Engagement details, in/out-of-scope lists (CIDR, ranges, wildcards), an is-it-in-scope checker and an asset tracker.",
+    help: {
+      steps: ["Record the engagement details and your in-scope / out-of-scope lists (CIDRs, ranges, wildcards).", "Use Check to test whether a host is in scope.", "Track assets as you find them; export JSON/CSV or copy the board as Markdown."],
+      tips: ["Out-of-scope entries always win over in-scope ones.", "Report checks every affected asset against this board."],
+    },
     icon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>',
     render(el, arg) {
       W.roeGate(el, () => {

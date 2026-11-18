@@ -151,6 +151,18 @@
       <div class="row">${a.links.map(([l, u]) => `<a class="btn sm" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(l)} ↗</a>`).join("")}</div>
       ${a.note ? `<span class="tiny faint">${esc(a.note)}</span>` : ""}</div>`).join("")}</div></section>`;
 
+  // Tool guide: per-layer, per-tool how-to built from each tool's `help` field (W.tool(..., { help: { steps, tips } })).
+  const guidePanel = () => `<section class="panel guide" id="st-guide"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Tool guide</h2>
+      <div class="row"><button class="btn sm" data-gx="1">Expand all</button><button class="btn sm" data-gx="0">Collapse all</button></div></div>
+    <p class="muted small">How to use every tool, layer by layer. Tap a tool for steps and tips, or open it straight from here.</p>
+    ${W.layers.map((l) => `<details class="g-layer" style="--acc:${l.accent}"><summary><b>${esc(l.name.toUpperCase())} ${esc(l.kanji)}</b><span class="muted small">${esc(l.role)} · ${W.toolsOf(l.id).length} tools</span></summary>
+      <p class="muted small">${esc(l.blurb || "")}</p>
+      ${W.toolsOf(l.id).map((t) => { const h = t.help || {}; return `<details class="g-tool"><summary><b>${esc(t.name)}</b><span class="muted small">${esc(t.desc)}</span></summary><div class="g-body">
+        ${(h.steps || []).length ? `<div class="g-sec">How to use it</div><ol>${h.steps.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}
+        ${(h.tips || []).length ? `<div class="g-sec">Tips</div><ul>${h.tips.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        <div class="row" style="justify-content:flex-end"><a class="btn sm" href="#/${l.id}/${t.id}">Open ${esc(t.name)} →</a></div></div></details>`; }).join("")}
+    </details>`).join("")}</section>`;
+
   // ------------------------------------------------------------------ settings
   async function renderSettings(el) {
     const est = navigator.storage && navigator.storage.estimate ? await navigator.storage.estimate().catch(() => null) : null;
@@ -171,7 +183,7 @@
           <label class="check"><input type="checkbox" id="st-roe" ${W.roeOk() ? "checked" : ""}> Naginata rules-of-engagement acknowledged</label>`)}
         ${ui.panel("About", `${ui.kv([["Wakizashi", "脇差 · v" + W.VERSION], ["Tools", total + " across " + W.layers.length + " layers"], ["Privacy", "No telemetry, no accounts, no CDNs — everything runs on this device."]])}
           <div class="spacer"></div><p class="muted small" style="margin:0">By RoninSec. Use offensive tooling only on systems you're authorised to test.</p>`)}
-      </div>${familyPanel()}</div>`;
+      </div>${guidePanel()}${familyPanel()}</div>`;
     $("#st-exp").onclick = () => W.download(`wakizashi-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify({ app: "wakizashi", version: W.VERSION, exported: W.nowIso(), data: W.store.dump() }, null, 2), "application/json");
     $("#st-imp").onchange = async (e) => {
       const f = e.target.files[0]; if (!f) return;
@@ -180,6 +192,7 @@
         W.store.load(j.data); W.toast("Backup imported"); route(); } catch (err) { W.toast(err.message, 1); }
     };
     $("#st-wipe").onclick = () => { if (!confirm("Wipe every case, library and setting stored by Wakizashi in this browser?")) return; W.store.clear(); W.toast("All Wakizashi data wiped"); route(); };
+    $("#st-guide").addEventListener("click", (e) => { const b = e.target.closest("[data-gx]"); if (b) $$("#st-guide details").forEach((d) => (d.open = b.dataset.gx === "1")); });
     $("#st-layer").onchange = (e) => W.store.set("ui.layer", e.target.value);
     $("#st-scan").onchange = (e) => { W.store.set("ui.scanlines", e.target.checked); $("#scan").hidden = !e.target.checked; };
     $("#st-roe").onchange = (e) => (e.target.checked ? W.store.set("roe.ack", W.nowIso()) : W.store.del("roe.ack"));

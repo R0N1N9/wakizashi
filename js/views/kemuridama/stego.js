@@ -20,6 +20,10 @@
   W.tool("kemuridama", "stego", {
     name: "Stego", order: 80,
     desc: "Privacy demo: hide a short message in a PNG's least-significant bits (optionally AES-encrypted) and reveal it again. Katana-compatible.",
+    help: {
+      steps: ["Pick a PNG, type a short message (optionally a passphrase to AES-encrypt it) and press Hide & download PNG.", "To read one, load the PNG (and passphrase) and press Reveal."],
+      tips: ["Re-compression, resizing and most chat apps destroy hidden bits — share the PNG as a file.", "Katana-compatible."],
+    },
     icon: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/>',
     render(el) {
       let tab = W.kmz.store("stego", "tab", "hide"), cover = null, urlNow = null;

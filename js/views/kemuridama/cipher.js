@@ -6,6 +6,10 @@
   W.tool("kemuridama", "cipher", {
     name: "Cipher", order: 20,
     desc: "Encrypt text and files with AES-256-GCM (passphrase or generated key); one-time pads and Shamir secret sharing.",
+    help: {
+      steps: ["Encrypt: enter text (or a file) and a passphrase — or generate a key — and press Encrypt.", "Decrypt: paste the ciphertext, enter the same passphrase/key and press Decrypt.", "Other tabs: generate one-time pads, or Split a secret into Shamir shares and Combine them back."],
+      tips: ["AES-256-GCM with PBKDF2-SHA256 (600,000+ iterations). Lose the passphrase and the data is gone."],
+    },
     icon: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/>',
     render(el) {
       let tab = W.kmz.store("cipher", "tab", "text");

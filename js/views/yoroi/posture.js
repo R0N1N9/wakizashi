@@ -80,6 +80,10 @@
   W.tool("yoroi", "posture", {
     name: "Posture", order: 80, icon: ICON,
     desc: "Audit this browser and device: updates, privacy signals, permissions, WebRTC leaks — scored 0–100 with fixes.",
+    help: {
+      steps: ["Open the tool — it audits this browser and device with local APIs only.", "Work through the failed controls; each has a fix.", "Re-check after changes to see your 0–100 score improve."],
+      tips: ["The WebRTC leak probe uses no STUN server, so nothing is sent anywhere."],
+    },
     render(el) {
       el.innerHTML = ui.head("POSTURE", "Browser posture", "A read-only audit of <b>this</b> browser and device using only local APIs — nothing is sent anywhere, and the WebRTC probe uses no STUN server. Each control is weighted into a 0–100 score with a concrete fix.") +
         `<div class="row">${ui.btn(W.icon(W.I.refresh) + "Run audit", 'id="po-go"', "pri")}<span class="grow"></span><span class="tiny faint" id="po-when"></span></div><div class="spacer"></div><div id="po-out">${ui.panel("", ui.loader("PROBING"))}</div>`;
