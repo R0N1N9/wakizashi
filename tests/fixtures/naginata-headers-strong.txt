@@ -1,0 +1,15 @@
+HTTP/2 200
+date: Wed, 18 Nov 2026 10:00:00 GMT
+content-type: text/html; charset=utf-8
+content-security-policy: default-src 'self'; script-src 'nonce-r4nd0m' 'strict-dynamic'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; require-trusted-types-for 'script'; report-to csp
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+cross-origin-opener-policy: same-origin
+cross-origin-embedder-policy: require-corp
+cross-origin-resource-policy: same-origin
+cache-control: no-store
+set-cookie: __Host-session=abc123; Path=/; Secure; HttpOnly; SameSite=Lax
+server: nginx

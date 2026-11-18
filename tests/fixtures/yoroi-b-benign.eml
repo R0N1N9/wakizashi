@@ -1,0 +1,13 @@
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com [209.85.220.41])
+        by mx.example.org with SMTPS id a1; Mon, 16 Nov 2026 09:10:02 +0000
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=github.com; dkim=pass header.d=github.com; dmarc=pass header.from=github.com
+From: GitHub <noreply@github.com>
+To: dev@example.org
+Subject: [repo] New release v2.4.0
+Date: Mon, 16 Nov 2026 09:10:00 +0000
+Message-ID: <release-123@github.com>
+Content-Type: text/plain; charset=utf-8
+
+A new release is available: https://github.com/example/repo/releases/tag/v2.4.0
+
+Thanks for using GitHub.

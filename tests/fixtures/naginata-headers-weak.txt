@@ -1,0 +1,21 @@
+HTTP/1.1 301 Moved Permanently
+Location: https://shop.example.com/
+
+HTTP/1.1 200 OK
+Server: Apache/2.4.49 (Unix) OpenSSL/1.1.1k
+X-Powered-By: PHP/7.4.3
+X-AspNet-Version: 4.0.30319
+Content-Type: text/html
+Content-Security-Policy: default-src * 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http://cdn.example.net *.example.com; script-src 'none'; plugin-types application/pdf
+Strict-Transport-Security: max-age=86400
+X-Frame-Options: ALLOW-FROM https://partner.example.com
+X-Content-Type-Options: nosniff, nosniff
+Referrer-Policy: unsafe-url
+Feature-Policy: camera *
+X-XSS-Protection: 1; mode=block
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Set-Cookie: PHPSESSID=deadbeef; path=/
+Set-Cookie: tracking=1; SameSite=None
+Set-Cookie: __Host-auth=x; Path=/app; Secure; Domain=example.com
+Set-Cookie: remember_token=y; Secure; HttpOnly; SameSite=Strict; Max-Age=31536000

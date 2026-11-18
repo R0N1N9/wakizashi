@@ -1,0 +1,19 @@
+title: Custom whoami recon
+id: test-0001
+tags: [attack.discovery, attack.t1033]
+logsource:
+    product: windows
+detection:
+    sel:
+        CommandLine|contains|windash: '-all'
+        Image|endswith: '\cmd.exe'
+    who:
+        CommandLine|contains: whoami
+    condition: all of them
+level: low
+---
+title: Broken rule
+detection:
+    sel:
+        a: 1
+    condition: sel and nothing

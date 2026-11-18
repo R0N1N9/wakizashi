@@ -1,0 +1,32 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Metadata 5 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 200 200] >>
+endobj
+4 0 obj
+<< /Author (Jane \(J\) Example) /Title <FEFF0054006F00700020005300650063007200650074> /Creator (FictionWriter 9) /Producer (FictionPDF 1.2) /CreationDate (D:20240501123456+02'00') >>
+endobj
+5 0 obj
+<< /Type /Metadata /Subtype /XML /Length 496 >>
+stream
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns:x="adobe:ns:meta/"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmp:CreatorTool="FictionEdit 3" photoshop:City="Paris"><dc:creator><rdf:Seq><rdf:li>Jane Example</rdf:li></rdf:Seq></dc:creator></rdf:Description></rdf:RDF></x:xmpmeta><?xpacket end="w"?>
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000074 00000 n 
+0000000131 00000 n 
+0000000202 00000 n 
+0000000400 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R /Info 4 0 R >>
+startxref
+977
+%%EOF

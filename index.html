@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wakizashi</title>
+<meta name="description" content="Wakizashi 脇差 — the web edition of the Katana security suite. Threat intel, detection, red-team planning and OPSEC tools that run entirely in your browser.">
+<meta name="theme-color" content="#0a0f16">
+<meta name="color-scheme" content="dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https:; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wakizashi">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg?v=1" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=1" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=1">
+<link rel="stylesheet" href="css/app.css">
+<!--STYLES-->
+<!--/STYLES-->
+</head>
+<body data-layer="yumi">
+<a class="skip" href="#view" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="top">
+  <a class="brand" href="#/" aria-label="Wakizashi home">
+    <svg viewBox="0 0 32 32" class="brand-mark" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c-4.2 1.4-8.4 4.6-11.6 8.3"/><path d="M25.1 9.9c-3.9 1.6-7.8 4.7-10.8 8.2"/><path d="M10.7 15.6l4 4"/><path d="M12.6 17.8 7.4 23" stroke-width="2.7"/></g><circle cx="6.4" cy="24" r="1.15" fill="currentColor"/></svg>
+    <span><span class="brand-text">WAKI<b>ZASHI</b></span><small class="brand-by">by RoninSec · web</small></span>
+    <svg class="brand-kanji" aria-hidden="true" viewBox="0 0 87.0 42.0" fill="currentColor"><path transform="scale(0.42)" d="M68.8 17.7Q66.2 30.6 57.4 37.9Q51.4 42.6 41.3 46L37.4 40.1Q57.6 33.6 61.4 18.1H41.1V11.4H62.6V0H69.7V11H94.8Q94.4 30.5 93 36.5Q91.2 43.6 82 43.6Q77 43.6 69.7 43L68.6 35.6Q74.1 36.9 80.7 36.9Q85.3 36.9 86.1 32.6Q87 28 87.6 17.7ZM51.8 61.8Q51.6 71.9 49.9 78.9Q47.1 90.6 37.8 100L33.5 94.4Q42.7 85.4 44.5 71.7Q45 67.9 45.2 62.3H35.4V55.7H45.2V47H51.8V55.2H66.5Q65.8 84.2 64.2 92.1Q62.9 98.4 55.9 98.4Q52.8 98.4 48.4 97.8L47.5 90.7Q53 91.6 54.8 91.6Q57.6 91.6 58.1 88.1Q59 82.3 59.9 61.8ZM84.9 61.8 84.8 63Q84 85.8 70.5 99.4L66 93.9Q77.3 83.7 78.2 62.3H69.8V55.7H78.3V47H84.9V55.2H99.6Q99.1 83.4 97.5 91.8Q96.4 97.7 89.7 97.7Q85.5 97.7 81.8 97.1L80.8 90.1Q84.1 90.9 87.7 90.9Q91 90.9 91.4 87.1Q92.8 78.7 93 61.8ZM32.2 5.5V91.3Q32.2 98.4 24.8 98.4Q20.5 98.4 16.4 97.9L14.9 90.4Q18.7 91 22.7 91Q25.5 91 25.5 88.4V62.4H13.8Q13.3 86.3 6 100L0.4 94.3Q4.8 86.3 6.1 77.2Q7.2 69.7 7.2 56.7V5.5ZM13.8 12.2V30.3H25.5V12.2ZM13.8 36.9V55.7H25.5V36.9Z"/><path transform="translate(45.0 0) scale(0.42)" d="M33.5 15.2Q30.4 10 26.1 4.6L33.6 1.3Q38.2 7.7 41.9 15.2H59.3Q64.1 8.3 67 1L75.4 4Q71.5 10.1 68 15.2H95.6V21.9H54.8V32.1H90.5V38.6H54.8V49.4H100V56.4H36.1Q34.1 62.1 30.9 68.2H90.5V74.9H62V92.1H98.8V99H18.5V92.1H53.8V74.9H26.7Q18.4 86.9 5.4 96.9L0 90.4Q19.5 76.9 28 56.4H2.4V49.4H46.8V38.6H11.9V32.1H46.8V21.9H6.7V15.2Z"/></svg>
+  </a>
+  <nav class="ltabs" id="ltabs" aria-label="Layers"></nav>
+  <span class="grow"></span>
+  <button class="ibtn" id="lookup-btn" title="Quick lookup ( / )" aria-label="Quick lookup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><span class="hide-sm">LOOKUP</span></button>
+  <button class="ibtn case-pill" id="case-pill" title="Active case" aria-label="Active case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18v13H3zM8 7V4h8v3M3 12h18"/></svg><span>General (0)</span></button>
+  <button class="ibtn" id="install-btn" hidden title="Install Wakizashi" aria-label="Install"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><rect x="3" y="17" width="18" height="4" rx="1"/></svg></button>
+  <a class="ibtn hide-sm" href="#/settings" title="Settings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></a>
+</header>
+<div class="frame">
+  <nav class="rail" id="rail" aria-label="Tools"></nav>
+  <main id="view" tabindex="-1"><div class="wrap"><span class="loader">LOADING<i>_</i></span></div></main>
+</div>
+<nav class="dock" id="dock" aria-label="Layers"></nav>
+<div class="scan" id="scan" aria-hidden="true"></div>
+<div id="toast" aria-live="polite"></div>
+<div id="modal" class="modal" hidden><div class="modal-box" role="dialog" aria-modal="true"><button class="ibtn modal-x" id="modal-x" aria-label="Close">✕</button><div id="modal-body"></div></div></div>
+<noscript><p style="padding:20px">Wakizashi needs JavaScript — everything runs locally in your browser.</p></noscript>
+
+<!-- core -->
+<script src="js/core.js"></script>
+<!-- engines (pure, no DOM) -->
+<!--ENGINES-->
+<script src="js/eng/block.js"></script>
+<script src="js/eng/cvss.js"></script>
+<script src="js/eng/detect.js"></script>
+<script src="js/eng/headers.js"></script>
+<script src="js/eng/ioc.js"></script>
+<script src="js/eng/jwt.js"></script>
+<script src="js/eng/kpack.js"></script>
+<script src="js/eng/logs.js"></script>
+<script src="js/eng/pivot.js"></script>
+<script src="js/eng/playbooks.js"></script>
+<script src="js/eng/regexgen.js"></script>
+<script src="js/eng/scope.js"></script>
+<script src="js/eng/scrub.js"></script>
+<script src="js/eng/sigma.js"></script>
+<script src="js/eng/stix.js"></script>
+<script src="js/eng/subnet.js"></script>
+<script src="js/eng/synth.js"></script>
+<script src="js/eng/transforms.js"></script>
+<script src="js/eng/triage.js"></script>
+<script src="js/eng/words.js"></script>
+<script src="js/eng/workbench.js"></script>
+<script src="js/eng/yara.js"></script>
+<script src="js/eng/yaragen.js"></script>
+<!--/ENGINES-->
+<!-- views -->
+<!--VIEWS-->
+<script src="js/views/yumi/case.js"></script>
+<script src="js/views/yumi/extract.js"></script>
+<script src="js/views/yumi/kev.js"></script>
+<script src="js/views/yumi/pivot.js"></script>
+<script src="js/views/yumi/regex.js"></script>
+<script src="js/views/yumi/toolkit.js"></script>
+<script src="js/views/yumi/triage.js"></script>
+<script src="js/views/yumi/workbench.js"></script>
+<script src="js/views/yumi/yara.js"></script>
+<!--/VIEWS-->
+<!-- shell boots last -->
+<script src="js/shell.js"></script>
+</body>
+</html>
