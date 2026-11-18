@@ -130,6 +130,27 @@
     </div>`;
   }
 
+
+  // ------------------------------------------------------------------ RoninSec family (cross-links)
+  W.FAMILY = [
+    { id: "katana", name: "Katana", kanji: "刀", platform: "Desktop", accent: "#2fd6cf",
+      blurb: "The full suite: a local Python server + console with live lookups, monitors, log agents and the complete toolset.",
+      links: [["Source & install", "https://github.com/R0N1N9/katana"]], note: "Private repository — collaborators only." },
+    { id: "wakizashi", name: "Wakizashi", kanji: "脇差", platform: "Web", accent: "#ffb547",
+      blurb: "This app — the suite in any browser, desktop or mobile. Installable, offline, nothing leaves the device.",
+      links: [["Open the web app", "https://r0n1n9.github.io/wakizashi/"], ["Source", "https://github.com/R0N1N9/wakizashi"]] },
+    { id: "karambit", name: "Karambit", kanji: "カランビット", platform: "Android", accent: "#a855f7",
+      blurb: "Native Android edition with on-device radio recon (Bluetooth/BLE), hardening audit and CTI tools.",
+      links: [["Download APK (nightly)", "https://github.com/R0N1N9/karambit/releases/download/nightly/roninsec-debug.apk"], ["Releases", "https://github.com/R0N1N9/karambit/releases"], ["Source", "https://github.com/R0N1N9/karambit"]] },
+  ];
+  const familyPanel = () => `<section class="panel"><h2>RoninSec family</h2>
+    <p class="muted small" style="margin-top:0">Same layers, same look — pick the edition that fits where you are.</p>
+    <div class="grid g3">${W.FAMILY.map((a) => `<div class="tile" style="flex-direction:column;gap:8px;--acc:${a.accent};border-color:${a.id === "wakizashi" ? a.accent : "var(--line)"}">
+      <div class="row" style="justify-content:space-between;width:100%"><b style="color:${a.accent}">${esc(a.name.toUpperCase())} <span style="font-family:var(--sans);letter-spacing:0">${esc(a.kanji)}</span></b>${ui.badge(a.id === "wakizashi" ? "you are here" : a.platform, a.id === "wakizashi" ? "ok" : "")}</div>
+      <span>${esc(a.blurb)}</span>
+      <div class="row">${a.links.map(([l, u]) => `<a class="btn sm" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(l)} ↗</a>`).join("")}</div>
+      ${a.note ? `<span class="tiny faint">${esc(a.note)}</span>` : ""}</div>`).join("")}</div></section>`;
+
   // ------------------------------------------------------------------ settings
   async function renderSettings(el) {
     const est = navigator.storage && navigator.storage.estimate ? await navigator.storage.estimate().catch(() => null) : null;
@@ -148,9 +169,9 @@
         ${ui.panel("Defaults", `<label class="lbl" for="st-layer">Open on</label><select id="st-layer">${W.layers.map((l) => `<option value="${l.id}" ${W.store.get("ui.layer", "yumi") === l.id ? "selected" : ""}>${esc(l.name)} — ${esc(l.role)}</option>`).join("")}</select>
           <div class="spacer"></div><label class="check"><input type="checkbox" id="st-scan" ${W.store.get("ui.scanlines", true) ? "checked" : ""}> CRT scanlines</label>
           <label class="check"><input type="checkbox" id="st-roe" ${W.roeOk() ? "checked" : ""}> Naginata rules-of-engagement acknowledged</label>`)}
-        ${ui.panel("About", `${ui.kv([["Wakizashi", "脇差 · v" + W.VERSION], ["Family", "Katana (desktop) · Karambit (Android) · Wakizashi (web)"], ["Tools", total + " across " + W.layers.length + " layers"], ["Privacy", "No telemetry, no accounts, no CDNs — everything runs on this device."]])}
+        ${ui.panel("About", `${ui.kv([["Wakizashi", "脇差 · v" + W.VERSION], ["Tools", total + " across " + W.layers.length + " layers"], ["Privacy", "No telemetry, no accounts, no CDNs — everything runs on this device."]])}
           <div class="spacer"></div><p class="muted small" style="margin:0">By RoninSec. Use offensive tooling only on systems you're authorised to test.</p>`)}
-      </div></div>`;
+      </div>${familyPanel()}</div>`;
     $("#st-exp").onclick = () => W.download(`wakizashi-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify({ app: "wakizashi", version: W.VERSION, exported: W.nowIso(), data: W.store.dump() }, null, 2), "application/json");
     $("#st-imp").onchange = async (e) => {
       const f = e.target.files[0]; if (!f) return;

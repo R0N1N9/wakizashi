@@ -1,6 +1,6 @@
 /* Wakizashi service worker — offline-first app shell.
    PRECACHE and VERSION are rewritten by `node tools/sync.js`; don't edit those two lines by hand. */
-const VERSION = "wkz-f5efaba6c43d";
+const VERSION = "wkz-19b58aee8ad2";
 const PRECACHE = [/*PRECACHE*/
   "./",
   "index.html",
