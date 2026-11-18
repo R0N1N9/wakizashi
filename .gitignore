@@ -2,3 +2,5 @@ node_modules/
 _site/
 .DS_Store
 *.log
+# test inputs are real log files — keep them
+!tests/fixtures/**
