@@ -109,7 +109,7 @@
           ];
           const binRows = Object.entries(i.binary).map(([k, v]) => [k, v]);
           $("#sn-out").innerHTML = (i.hostBits ? `<div class="callout warn small">${esc(i.address)} has host bits set — the network is ${esc(i.cidr)}.</div><div class="spacer"></div>` : "")
-            + `<div class="grid g4">${ui.stat("/" + i.bits, "Prefix", true)}${ui.stat(i.v === 4 ? big(i.hosts) : "2^" + (128 - i.bits), i.v === 4 ? "Usable hosts" : "Addresses")}${ui.stat("IPv" + i.v, "Family")}${ui.stat(i.type.replace(/ \(.*\)$/, ""), "Type")}</div>
+            + `<div class="grid g4">${ui.stat("/" + i.bits, "Prefix", true)}${ui.stat(i.v === 4 ? big(i.hosts) : "2^" + (128 - i.bits), i.v === 4 ? "Usable hosts" : "Addresses")}${ui.stat("IPv" + i.v, "Family")}<div class="panel stat"><div class="n" style="font-size:17px;line-height:1.25;overflow-wrap:anywhere">${esc(i.type.replace(/ \(.*\)$/, ""))}</div><div class="l">Type</div></div></div>
             <div class="grid g2">${ui.panel("Details", `<dl class="kv">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd class="mono break">${esc(v)}</dd>`).join("")}</dl>
               <div class="spacer"></div><div class="row"><button class="btn ghost sm" id="sn-copy">${W.icon(W.I.copy)} Copy</button><button class="btn ghost sm" id="sn-scope">Check scope</button><button class="btn ghost sm" id="sn-split">Split…</button></div>`)}
             ${ui.panel("Binary", binRows.map(([k, v]) => `<div class="lbl" style="margin-top:6px">${esc(k)}</div>${binView(v, i.bits, i.v)}`).join("")

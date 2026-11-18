@@ -173,6 +173,7 @@
   function registerSW() {
     if (!("serviceWorker" in navigator) || !(location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) return;
     navigator.serviceWorker.register("sw.js").then((reg) => {
+      if (!reg) return;
       reg.addEventListener("updatefound", () => {
         const nw = reg.installing; if (!nw) return;
         nw.addEventListener("statechange", () => { if (nw.state === "installed" && navigator.serviceWorker.controller) W.toast("Update ready — reload to get the latest Wakizashi"); });
