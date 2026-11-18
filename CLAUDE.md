@@ -70,6 +70,7 @@ CI fails if `node tools/sync.js --check` reports drift.
     name: "Extract", order: 10,
     desc: "Pull IOCs out of any text; refang, dedupe, export.",          // shown on the layer home tile
     icon: '<path d="M4 4h16v6H4zM4 14h7v6H4z"/>',                         // 24x24 stroke paths
+    help: { steps: ["Paste…", "Press Extract…"], tips: [] },             // Settings → Tool guide (sync --check requires 2+ steps)
     render(el, arg) {                                                     // arg = value passed via W.go(layer, tool, arg)
       el.innerHTML = ui.head("Extract", "IOC extraction", "subtitle…") + `…`;
       W.act("#ex-go", async () => { … });                                 // async buttons: disables + toasts errors
