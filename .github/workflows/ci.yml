@@ -14,8 +14,26 @@ jobs:
         with:
           node-version: 22
       - name: Syntax check
-        run: for f in js/*.js js/eng/*.js js/views/*/*.js sw.js tools/*.js tests/*.js; do node --check "$f"; done
+        run: for f in js/*.js js/eng/*.js js/views/*/*.js sw.js tools/*.js tests/*.js tests/e2e/*.js; do node --check "$f"; done
       - name: Generated files are in sync
         run: node tools/sync.js --check
       - name: Unit tests
         run: node tests/run.js
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright + Chromium (CI only; the app itself has no dependencies)
+        run: |
+          npm install --no-save --no-package-lock playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Browser smoke test (every screen, desktop + phone)
+        run: SHOTS=e2e-shots node tests/e2e/smoke.js
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screens
+          path: e2e-shots
