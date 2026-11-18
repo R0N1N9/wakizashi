@@ -5,14 +5,14 @@
 
   W.tool("yumi", "workbench", {
     name: "Workbench", order: 20,
-    desc: "Report → ATT&CK mapping, attribution, Sigma + YARA, a STIX bundle and a ready-made case.",
+    desc: "Report → ATT&CK mapping, attribution, YARA + Sigma, a STIX bundle and a ready-made case.",
     help: {
-      steps: ["Paste a threat report, load a file, or Fetch a CTI article by URL.", "Press Enrich to map behaviour to MITRE ATT&CK, suggest attribution and draft Sigma + YARA.", "Export a Markdown brief or STIX bundle, add the rules to your YARA library, or send them to Yoroi to hunt logs or scan files."],
+      steps: ["Paste a threat report, load a file, or Fetch a CTI article by URL.", "Press Enrich to map behaviour to MITRE ATT&CK, suggest attribution and draft YARA + Sigma.", "Export a Markdown brief or STIX bundle, add the rules to your YARA library, or send them to Yoroi to hunt logs or scan files."],
       tips: ["Inferred techniques are suggestions — check them against the report.", "Fetch is the only step that uses the network."],
     },
     icon: '<path d="M3 7l6-4 6 4M3 7v10l6 4 6-4M3 7l6 4 6-4M9 11v10"/><path d="M16 14l2 2 4-4"/>',
     render(el, arg) {
-      el.innerHTML = ui.head("Workbench", "Enrichment", "Paste a threat report — or fetch a CTI article. Wakizashi maps behaviour to MITRE ATT&CK (labelled <i>and</i> inferred), notes the actor and tooling, drafts Sigma and YARA with false-positive risk, then builds a case and a STIX 2.1 bundle for OpenCTI.") + `
+      el.innerHTML = ui.head("Workbench", "Enrichment", "Paste a threat report — or fetch a CTI article. Wakizashi maps behaviour to MITRE ATT&CK (labelled <i>and</i> inferred), notes the actor and tooling, drafts YARA and Sigma with false-positive risk, then builds a case and a STIX 2.1 bundle for OpenCTI.") + `
         <div class="panel">
           <label class="lbl" for="wb-url">Article link (optional)</label>
           <div class="row"><input id="wb-url" type="url" placeholder="https://vendor.example/blog/threat-report" spellcheck="false" style="flex:1;min-width:200px"><button class="btn" id="wb-fetch">Fetch</button></div>
@@ -86,7 +86,7 @@
               <span class="lbl">Inferred from behaviour (${r.attack.inferred.length}) — verify these</span><div>${r.attack.inferred.map(tech).join("") || '<span class="faint small">none</span>'}</div></section>
           </div>
           ${r.attack.tactics.length ? ui.panel("Kill-chain coverage", ui.bars(r.attack.tactics.map(([t, v]) => [t, v.length]))) : ""}
-          <div class="grid g2">${rulePanel("sigma", "Sigma draft", r.sigma)}${rulePanel("yara", "YARA draft", r.yara)}</div>
+          <div class="grid g2">${rulePanel("yara", "YARA draft", r.yara)}${rulePanel("sigma", "Sigma draft", r.sigma)}</div>
           ${ui.panel(`Indicators (${r.case.items.length})`, ui.table(["Value", "Type"], r.case.items.slice(0, 200).map((x) => [x.value, x.type]), { mono: true, max: 360 }))}
           ${r.artifacts.length ? ui.panel("Host artifacts", r.artifacts.map((g) => `<div class="small"><b>${esc(g.label)}</b> ${g.items.slice(0, 12).map((v) => ui.chip(v)).join("")}</div>`).join("")) : ""}`;
         $("#wb-case").onclick = () => {

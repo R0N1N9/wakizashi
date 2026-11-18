@@ -23,6 +23,36 @@
     },
   });
 
+  // Direct, no-key dynamic-analysis / intel links for a sample, keyed by its hash. Opening a link
+  // just searches that service for the hash — nothing is uploaded from the browser.
+  function sbLinks(h) {
+    const s = (h && (h.sha256 || h.sha1 || h.md5)) || "";
+    if (!s) return [];
+    const e = encodeURIComponent(s);
+    return [
+      ["VirusTotal", `https://www.virustotal.com/gui/file/${e}`, "sandbox"],
+      ["Hybrid Analysis", `https://www.hybrid-analysis.com/sample/${e}`, "sandbox"],
+      ["Hatching Triage", `https://tria.ge/s?q=${e}`, "sandbox"],
+      ["ANY.RUN", `https://app.any.run/submissions/#filehash:${e}`, "sandbox"],
+      ["Joe Sandbox", `https://www.joesandbox.com/search?q=${e}`, "sandbox"],
+      ["Intezer", `https://analyze.intezer.com/files/${e}`, "sandbox"],
+      ["Filescan.io", `https://www.filescan.io/search-result?query=${e}`, "sandbox"],
+      ["MalwareBazaar", `https://bazaar.abuse.ch/sample/${e}/`, "intel"],
+      ["ThreatFox", `https://threatfox.abuse.ch/browse.php?search=ioc%3A${e}`, "intel"],
+      ["MalShare", `https://malshare.com/sample.php?action=detail&hash=${e}`, "intel"],
+      ["Kaspersky OpenTIP", `https://opentip.kaspersky.com/${e}`, "intel"],
+      ["Cisco Talos", `https://talosintelligence.com/sha_searches?hash=${e}`, "intel"],
+      ["Maltiverse", `https://maltiverse.com/sample/${e}`, "intel"],
+    ];
+  }
+  function sbPanel(h) {
+    const links = sbLinks(h); if (!links.length) return "";
+    const row = (kind) => `<div class="row" style="flex-wrap:wrap;gap:6px">${links.filter((x) => x[2] === kind).map(([n, u]) => `<a class="btn sm" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(n)} ↗</a>`).join("")}</div>`;
+    return ui.panel("Dynamic analysis — open directly",
+      `<div class="muted small" style="margin-bottom:8px">No API key needed — each opens that sandbox or intel feed searched for this sample's hash (nothing is uploaded from here).</div>
+       <div class="lbl">Sandboxes</div>${row("sandbox")}<div class="spacer"></div><div class="lbl">Intel feeds</div>${row("intel")}`);
+  }
+
   function draw(r) {
     const ind = r.indicators, d = r.details || {};
     const scalar = Object.entries(d).filter(([k, v]) => !["Sections", "imports", "Listing", "Keywords", "DEX files", "Native ABIs", "External targets"].includes(k) && v != null && typeof v !== "object");
@@ -37,6 +67,7 @@
         ${ui.panel("Hashes", ui.kv([["MD5", r.hashes.md5], ["SHA-1", r.hashes.sha1], ["SHA-256", r.hashes.sha256], ["Entropy", r.entropy + " bits/byte"], ["ImpHash", d.ImpHash || ""]].map(([k, v]) => [k, v ? `<code>${esc(v)}</code>` : "", true])))}
         ${ui.panel("Structure", scalar.length ? ui.kv(scalar.map(([k, v]) => [k, String(v)])) : '<span class="muted small">No format-specific details for this type.</span>')}
       </div>
+      ${sbPanel(r.hashes)}
       ${ui.panel(`Indicators (${ind.items.length})`, ind.items.length ? ind.items.map((i) => `<div class="finding ${i.severity}"><header>${ui.sev(i.severity)}<h3>${esc(i.title)}</h3>${i.tech ? `<a class="chip" href="https://attack.mitre.org/techniques/${esc(i.tech)}/" target="_blank" rel="noopener noreferrer">${esc(i.tech)}</a>` : ""}</header>${i.detail ? `<div class="det mono">${esc(i.detail)}</div>` : ""}</div>`).join("") : ui.empty("NOTHING NOTABLE", "No suspicious structure, imports or strings."))}
       ${d.Sections ? ui.panel("PE sections", ui.table(["Name", "Virtual", "Raw", "Entropy", "Flags"], d.Sections.map((s) => [s.name, W.fmt.bytes(s.vsize), W.fmt.bytes(s.rsize), s.entropy, (s.exec ? "X" : "") + (s.write ? "W" : "")]), { mono: true })) : ""}
       ${d.imports && d.imports.length ? ui.panel(`Imports (${d.imports.length} DLLs)`, `<div class="tablewrap" style="max-height:340px">${d.imports.map((i) => `<div style="padding:8px 10px;border-bottom:1px solid var(--line)"><b class="mono small">${esc(i.dll)}</b> <span class="faint tiny">${i.funcs.length}</span><div class="tiny mono muted break">${i.funcs.map((f) => ind.apis.includes(f.toLowerCase()) ? `<span class="c-high">${esc(f)}</span>` : esc(f)).join(", ")}</div></div>`).join("")}</div>`) : ""}
