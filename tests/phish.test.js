@@ -66,6 +66,8 @@ test("full phish fixture: auth, hops, origin IP, encoded subject, QP, forms, lur
   assert.ok(r.iocs.domain.includes("paypa1-secure.top"));
   assert.ok(r.blockable.includes("bit.ly") && r.blockable.some((x) => x.startsWith("http://paypa1-secure.top")));
   assert.ok(r.body_preview.includes("unusual sign-in activity"));
+  assert.ok(!r.urls.some((u) => u.url.startsWith("https://www.paypal.com")), "decoy link text is not a link");
+  assert.ok(!r.blockable.some((x) => /paypal\.com/.test(x)), "impersonated brand never blockable");
 });
 
 test("benign fixture stays benign", () => {

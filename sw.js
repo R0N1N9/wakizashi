@@ -1,6 +1,6 @@
 /* Wakizashi service worker — offline-first app shell.
    PRECACHE and VERSION are rewritten by `node tools/sync.js`; don't edit those two lines by hand. */
-const VERSION = "wkz-4320cc55b05e";
+const VERSION = "wkz-7ed183bd8d93";
 const PRECACHE = [/*PRECACHE*/
   "./",
   "index.html",
@@ -15,11 +15,14 @@ const PRECACHE = [/*PRECACHE*/
   "assets/apple-touch-icon.png",
   "assets/favicon-32.png",
   "css/naginata.css",
+  "css/yoroi-b.css",
   "css/yoroi.css",
   "js/eng/block.js",
   "js/eng/cipher.js",
   "js/eng/cvss.js",
+  "js/eng/decoy.js",
   "js/eng/detect.js",
+  "js/eng/footprint.js",
   "js/eng/headers.js",
   "js/eng/ioc.js",
   "js/eng/jwt.js",
@@ -35,6 +38,7 @@ const PRECACHE = [/*PRECACHE*/
   "js/eng/scope.js",
   "js/eng/scrub.js",
   "js/eng/sigma.js",
+  "js/eng/stego.js",
   "js/eng/stix.js",
   "js/eng/subnet.js",
   "js/eng/synth.js",
@@ -54,9 +58,14 @@ const PRECACHE = [/*PRECACHE*/
   "js/views/yumi/triage.js",
   "js/views/yumi/workbench.js",
   "js/views/yumi/yara.js",
+  "js/views/yoroi/block.js",
   "js/views/yoroi/hunt.js",
+  "js/views/yoroi/phish.js",
+  "js/views/yoroi/posture.js",
+  "js/views/yoroi/respond.js",
   "js/views/yoroi/rules.js",
   "js/views/yoroi/synth.js",
+  "js/views/yoroi/yara.js",
   "js/views/naginata/cvss.js",
   "js/views/naginata/headers.js",
   "js/views/naginata/jwt.js",

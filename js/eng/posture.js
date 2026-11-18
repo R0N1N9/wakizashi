@@ -101,7 +101,7 @@
 
     // --- browser & platform
     add("secure-context", "Browser", "Secure context (HTTPS)", 10, f.secureContext ? "pass" : "fail",
-      f.secureContext ? `Served over ${f.protocol || "https:"} — WebCrypto, service worker and storage protections are active` : `Page loaded over ${f.protocol || "?"} — traffic can be read or modified`,
+      f.secureContext ? `${f.protocol === "http:" ? "Served from localhost (treated as secure)" : "Served over HTTPS"} — WebCrypto, service worker and storage protections are active` : `Page loaded over ${f.protocol || "?"} — traffic can be read or modified`,
       "Open Wakizashi over https:// (or localhost). Never use security tools over plain HTTP.");
     const exp = b.major != null ? expectedMajor(b.name, now) : null;
     if (b.major != null && exp != null) {

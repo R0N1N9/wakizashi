@@ -511,7 +511,9 @@
         links = links.concat(p.links.map(([h, t]) => [unent(h), t]));
         forms = forms.concat(p.forms);
         texts.push(p.text);
-        for (const u of p.text.match(RE_URL) || []) links.push([u, null]);
+        // bare URLs in the HTML text that aren't the visible text of a link (that text is often a decoy like https://www.paypal.com)
+        const shown = p.links.map(([, t]) => t || "").join(" ");
+        for (const u of p.text.match(RE_URL) || []) if (!shown.includes(u)) links.push([u, null]);
       } else if (part.ctype.startsWith("text/")) {
         texts.push(body);
         for (const u of body.match(RE_URL) || []) links.push([u, null]);
@@ -554,7 +556,9 @@
       email: uniq([parseAddr(hdr.summary.From).addr, parseAddr(hdr.summary["Reply-To"]).addr, parseAddr(hdr.summary["Return-Path"]).addr].filter((x) => x && x.includes("@")).map((x) => x.toLowerCase())),
       sha256: atts.map((a) => a.hashes.sha256).filter(Boolean),
     };
-    const blockable = uniq([...iocs.domain, ...iocs.url, ...iocs.ipv4, ...iocs.sha256]);
+    // never suggest blocking the brands being impersonated (or their subdomains)
+    const legit = (v) => { let h = v; try { if (/^https?:/i.test(v)) h = new URL(v).hostname; } catch { /* keep */ } return BRAND_DOMAINS.has(regDomain(h)); };
+    const blockable = uniq([...iocs.domain, ...iocs.url, ...iocs.ipv4, ...iocs.sha256]).filter((v) => !legit(v));
     return {
       headers: hdr, urls, attachments: atts, forms, lures, score, verdict, redflags, iocs, blockable,
       subject: hdr.summary.Subject || null, from: hdr.summary.From || null,
