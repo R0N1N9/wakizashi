@@ -225,4 +225,32 @@
     registerSW();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+
+  /* top-bar resource deck — browsers can't read system CPU/RAM, so this shows the live signals a
+     page can see: main-thread load (CPU) and JS-heap headroom (MEM). Best-effort; hides what's
+     unsupported. Bars show remaining headroom, draining and recolouring as it's consumed. */
+  (function resdeck() {
+    const deck = document.getElementById("resdeck"); if (!deck) return;
+    const byId = (id) => document.getElementById(id);
+    const setBar = (bar, head) => {
+      if (!bar) return;
+      if (head == null) { bar.style.width = "0%"; bar.className = ""; return; }
+      bar.style.width = Math.max(2, Math.min(100, head)) + "%";
+      bar.className = head <= 15 ? "bad" : head <= 40 ? "warn" : "";
+    };
+    let lagLast = performance.now(), busy = 0;
+    setInterval(() => { const now = performance.now(); busy = Math.min(100, Math.max(0, (now - lagLast) - 1000) / 1000 * 100); lagLast = now; }, 1000);
+    const memHead = () => { try { const m = performance.memory; return m && m.jsHeapSizeLimit ? 100 - (m.usedJSHeapSize / m.jsHeapSizeLimit) * 100 : null; } catch { return null; } };
+    function tick() {
+      deck.hidden = false;
+      const cpuHead = 100 - busy;
+      setBar(byId("wd-cpu"), cpuHead);
+      byId("wd-cpuv").textContent = Math.round(cpuHead) + "%";
+      byId("wd-cpuv").title = Math.round(busy) + "% main-thread load";
+      const mh = memHead(), mg = byId("wd-memg");
+      if (mh == null) { if (mg) mg.style.display = "none"; }
+      else { if (mg) mg.style.display = ""; setBar(byId("wd-mem"), mh); byId("wd-memv").textContent = Math.round(mh) + "%"; byId("wd-memv").title = "JS-heap headroom"; }
+    }
+    tick(); setInterval(tick, 2500);
+  })();
 })();
