@@ -10,10 +10,10 @@
   --text: #e7eef7;
   --dim: #8a9db2;
   --faint: #56677b;
-  --brand: #ffb547;          /* Wakizashi amber */
-  --brand-hi: #ffd38a;
+  --brand: #2fd6cf;          /* Wakizashi seafoam — matches Katana's default mark */
+  --brand-hi: #7ff0ea;
   --acc: var(--brand);       /* current layer accent; set via body[data-layer] */
-  --acc-rgb: 255, 181, 71;
+  --acc-rgb: 47, 214, 207;
   --crit: #ff5a5f; --high: #ff9f43; --med: #ffd93d; --low: #4d8bff; --info: #7fb4ff; --ok: #41d392;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans JP", sans-serif;
@@ -67,10 +67,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
   background: linear-gradient(90deg, transparent, rgba(var(--acc-rgb), .7), transparent); }
 .brand { display: flex; align-items: center; gap: 9px; color: var(--text); text-decoration: none; min-width: 0; }
 .brand:hover { text-decoration: none; }
-.brand-mark { width: 28px; height: 28px; color: var(--brand); flex: none; filter: drop-shadow(0 0 6px rgba(255,181,71,.45)); }
+.brand-mark { width: 28px; height: 28px; color: var(--brand); flex: none; filter: drop-shadow(0 0 6px rgba(47,214,207,.45)); }
 .brand-text { font: 700 15px/1 var(--mono); letter-spacing: .22em; white-space: nowrap; }
 .brand-text b { color: var(--brand); font-weight: 700; }
-.brand-kanji { height: 17px; width: auto; color: var(--brand); opacity: .9; flex: none; filter: drop-shadow(0 0 5px rgba(255,181,71,.5)); }
+.brand-kanji { height: 17px; width: auto; color: var(--brand); opacity: .9; flex: none; filter: drop-shadow(0 0 5px rgba(47,214,207,.5)); }
 .brand-by { display: block; font: 600 9px/1 var(--mono); letter-spacing: .2em; color: var(--faint); margin-top: 4px; }
 
 .ltabs { display: flex; gap: 2px; margin-left: 18px; }
