@@ -13,16 +13,18 @@ and mobile. No server, no account, no telemetry, no third-party code.
 
 The wakizashi is the short companion blade worn beside the katana — this is the one you always have on you.
 
+<p align="center"><img src="docs/screenshots/yumi-home.png" width="860" alt="Wakizashi Yumi (CTI) layer home with its tool grid"></p>
+
 ## Layers
 
 Same four layers, colours and names as Katana:
 
 | Layer | Kanji | Role | Tools |
 |---|---|---|---|
-| **Yumi** | 弓 | CTI / threat intel | <!--TOOLS:yumi--> |
-| **Yoroi** | 鎧 | Defense / blue team | <!--TOOLS:yoroi--> |
-| **Naginata** | 薙刀 | Assessment / red team (authorised use) | <!--TOOLS:naginata--> |
-| **Kemuridama** | 煙玉 | Counterintel / personal OPSEC | <!--TOOLS:kemuridama--> |
+| **Yumi** | 弓 | CTI / threat intel | Extract, Pivot, Workbench, Case, YARA, Triage, Toolkit, Regex, KEV |
+| **Yoroi** | 鎧 | Defense / blue team | Hunt, Rules, Synth, YARA, Phish, Block, Respond, Posture |
+| **Naginata** | 薙刀 | Assessment / red team (authorised use) | Scope, Subnet, CVSS, Headers, JWT, Report |
+| **Kemuridama** | 煙玉 | Counterintel / personal OPSEC | In progress |
 
 Highlights:
 
@@ -35,6 +37,13 @@ Highlights:
 - **YARA-lite** engine for building, testing and scanning files — fully in-browser.
 - **File triage** (PE imports + imphash, sections, Office macros / remote templates, APK, PDF), metadata
   scrubbing, AES-256-GCM encryption, and more.
+
+## Screenshots
+
+| Enrichment workbench (Yumi) | Log hunting (Yoroi) |
+|---|---|
+| <img src="docs/screenshots/yumi-workbench.png" alt="Workbench enriching a pasted threat report into indicators, ATT&CK techniques and STIX objects"> | <img src="docs/screenshots/yoroi-hunt.png" alt="Hunt tool running behavioural detections over a sample SSH brute-force auth.log"> |
+| Paste a report: indicators, ATT&CK mapping, STIX objects and a ready-made case. | Load a sample or your own logs: events, findings and a timeline, all local. |
 
 ## Use it
 
