@@ -356,14 +356,14 @@ footer.foot { display: flex; gap: 10px; padding: 18px 0 0; color: var(--faint); 
 .guide ol, .guide ul { margin: 0 0 8px; padding-left: 20px; }
 
 /* top-bar resource deck — segmented "cyberdeck" gauges (CPU = main-thread headroom, MEM = JS-heap headroom) */
-.resdeck { display: flex; align-items: center; gap: 12px; margin-right: 4px; }
+.resdeck { display: flex; flex-direction: column; justify-content: center; gap: 3px; margin-right: 4px; }
 .resdeck .rd-g { display: flex; align-items: center; gap: 6px; }
-.resdeck small { font: 700 9px/1 var(--mono); letter-spacing: .14em; color: var(--faint); }
-.resdeck .res-bar { position: relative; width: 54px; height: 9px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--surface); }
+.resdeck small { font: 700 8.5px/1 var(--mono); letter-spacing: .12em; color: var(--faint); min-width: 24px; }
+.resdeck .res-bar { position: relative; width: 58px; height: 7px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--surface); }
 .resdeck .res-bar::before { content: ""; position: absolute; inset: 0; z-index: 0; background: repeating-linear-gradient(90deg, rgba(130,160,180,.14) 0 4px, transparent 4px 5px); }
 .resdeck .res-bar i { position: relative; z-index: 1; display: block; height: 100%; width: 0; background: #35c08a; transition: width .4s ease, background .4s; }
 .resdeck .res-bar i.warn { background: #ffb020; }
 .resdeck .res-bar i.bad { background: #ff5a5f; }
 .resdeck .res-bar::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: repeating-linear-gradient(90deg, transparent 0 4px, var(--surface) 4px 5px); }
-.resdeck .rd-v { font: 700 11px/1 var(--mono); color: var(--text); font-variant-numeric: tabular-nums; min-width: 30px; }
-@media (max-width: 640px) { .resdeck { gap: 7px; } .resdeck .res-bar { width: 34px; } .resdeck small { display: none; } }
+.resdeck .rd-v { font: 700 10px/1 var(--mono); color: var(--text); font-variant-numeric: tabular-nums; min-width: 42px; }
+@media (max-width: 640px) { .resdeck .res-bar { width: 46px; } }
