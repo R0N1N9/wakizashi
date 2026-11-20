@@ -1,4 +1,4 @@
-/* POSTURE — pure scoring for the browser/device posture audit (the web cousin of Karambit's Aegis
+/* POSTURE — pure scoring for the browser/device posture audit (the web cousin of Tantō's Aegis
  * HardeningAudit). The view gathers a facts object with local APIs only; this turns it into weighted
  * checks and a 0–100 score. Nothing here touches the DOM or the network.
  *

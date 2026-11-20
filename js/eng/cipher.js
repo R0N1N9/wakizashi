@@ -15,7 +15,7 @@
  *
  * Katana's shinobi/cipher.py has no AES (it does stego, OTP and Shamir), so the AES container is Wakizashi's
  * own. The OTP (base64 pad, XOR, base64 ciphertext) and Shamir (GF(256) poly 0x11d, base32 shares with the
- * x-coordinate as the first byte) functions below are byte-for-byte interoperable with Katana and Karambit.
+ * x-coordinate as the first byte) functions below are byte-for-byte interoperable with Katana and Tantō.
  */
 (function (W) {
   "use strict";

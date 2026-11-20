@@ -1,4 +1,4 @@
-/* SCRUB — metadata inspection and lossless stripping (port of Katana shinobi/scrub.py + Karambit ScrubEngine).
+/* SCRUB — metadata inspection and lossless stripping (port of Katana shinobi/scrub.py + Tantō ScrubEngine).
  *
  *   await W.eng.scrub.scan(bytes, name)  → { type, label, leaks[], meta{}, gps, risks[], segments[], counts,
  *                                            summary, canStrip, clean (Uint8Array|null), removed[], note, mime }

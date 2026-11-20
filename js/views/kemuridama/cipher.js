@@ -85,7 +85,7 @@
             catch (e) { fail(f.name, e); }
           }, { multiple: true });
         } else if (tab === "otp") {
-          body.innerHTML = `<div class="panel"><p class="small muted" style="margin-top:0">A one-time pad is unbreakable only if the pad is truly random, at least as long as the message, kept secret and <b>never reused</b>. Same format as Katana / Karambit (base64 pad, base64 ciphertext).</p>
+          body.innerHTML = `<div class="panel"><p class="small muted" style="margin-top:0">A one-time pad is unbreakable only if the pad is truly random, at least as long as the message, kept secret and <b>never reused</b>. Same format as Katana / Tantō (base64 pad, base64 ciphertext).</p>
             <div class="grid g2"><div><label class="lbl" for="ci-otxt">Message / ciphertext</label><textarea id="ci-otxt" rows="5" spellcheck="false"></textarea></div>
             <div><label class="lbl" for="ci-opad">Pad (base64)</label><textarea id="ci-opad" rows="5" spellcheck="false"></textarea>
               <div class="row" style="margin-top:8px"><input type="number" id="ci-olen" value="256" min="1" max="65536" style="max-width:120px" aria-label="Pad length in bytes"><button class="btn sm" id="ci-ogen">New pad (bytes)</button></div></div></div>
@@ -99,7 +99,7 @@
               <div class="spacer"></div><div id="ci-sout"></div></div>
             <div class="panel"><h2>Combine shares</h2><label class="lbl" for="ci-sin">Shares (one per line)</label><textarea id="ci-sin" rows="6" spellcheck="false"></textarea>
               <div class="spacer"></div><button class="btn" id="ci-scomb">Combine</button><div class="spacer"></div><div id="ci-cout"></div></div></div>
-            <p class="tiny muted">Shamir's scheme over GF(256): any <i>k</i> of <i>n</i> shares rebuild the secret; fewer reveal nothing. Shares are compatible with Katana and Karambit.</p>`;
+            <p class="tiny muted">Shamir's scheme over GF(256): any <i>k</i> of <i>n</i> shares rebuild the secret; fewer reveal nothing. Shares are compatible with Katana and Tantō.</p>`;
           $("#ci-ssplit").onclick = () => { try { const s = C().shamirSplit($("#ci-ssec").value, $("#ci-sn").value, $("#ci-sk").value); $("#ci-sout").innerHTML = `<pre class="out">${esc(s.join("\n"))}</pre><div class="spacer"></div>${W.kmz.copyBtn(s.join("\n"), "Copy all")}`; } catch (e) { $("#ci-sout").innerHTML = `<div class="callout bad">${esc(e.message)}</div>`; } };
           $("#ci-scomb").onclick = () => { try { const v = C().shamirCombine($("#ci-sin").value.split(/\s+/)); $("#ci-cout").innerHTML = `<div class="km-out sm">${esc(v)}</div><div class="tiny muted" style="margin-top:6px">With too few shares this is garbage, not an error — that's by design.</div>`; } catch (e) { $("#ci-cout").innerHTML = `<div class="callout bad">${esc(e.message)}</div>`; } };
         }

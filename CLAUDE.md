@@ -1,16 +1,16 @@
 # Wakizashi 脇差 — contributor guide
 
 Wakizashi is the **web edition** of the RoninSec *Katana* security suite: a static, installable PWA that runs
-**entirely in the browser** (desktop and mobile), the way *Karambit* is the native Android edition. The three
+**entirely in the browser** (desktop and mobile), the way *Tantō* is the native Android edition. The three
 products share an identity — layers, colours, naming — but no code: every engine here is plain JavaScript.
 
 | Repo | What | Reference |
 |---|---|---|
 | `R0N1N9/wakizashi` | this — static web app | — |
 | `R0N1N9/cti-tools` (a.k.a. katana) | desktop suite: Python stdlib server + vanilla JS GUIs | engines in `katana/{cti,defense,offense,shinobi}/*.py` |
-| `R0N1N9/karambit` | native Android (Kotlin/Compose) | `app/src/main/java/sec/ronin/mobile/feature/**` |
+| `R0N1N9/tanto` | native Android (Kotlin/Compose) | `app/src/main/java/sec/ronin/tanto/feature/**` |
 
-When porting a feature, read the Katana Python engine (most complete) and Karambit's Kotlin (already re-shaped
+When porting a feature, read the Katana Python engine (most complete) and Tantō's Kotlin (already re-shaped
 for a single-device, no-server world) and port the *behaviour*, not the code.
 
 ## Layers (identical to Katana)
