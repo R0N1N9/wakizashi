@@ -1,5 +1,5 @@
 /* TRACE — tracker, redirect-wrapper and homograph analysis for links and email HTML (port of Katana
- * shinobi/trace.py + Karambit TraceEngine), extended with redirect unwrapping and IDN/punycode checks.
+ * shinobi/trace.py + Tantō TraceEngine), extended with redirect unwrapping and IDN/punycode checks.
  *
  *   cleanUrl(url)   → { input, url, clean, host, hostUnicode, removed[{param,value,what}], unwrapped[{via,from}],
  *                       flags[{level,text}], shortener, idn{...}|null, changed }

@@ -6,13 +6,16 @@
 reporting and personal OPSEC — as an installable web app that runs **entirely in your browser** on desktop
 and mobile. No server, no account, no telemetry, no third-party code.
 
-| | Katana 刀 | Karambit | **Wakizashi 脇差** |
+Wakizashi is the web blade of **Daishō**, the RoninSec blade suite
+(Katana desktop · Wakizashi web · Tantō mobile).
+
+| | Katana 刀 | Tantō 短刀 | **Wakizashi 脇差** |
 |---|---|---|---|
 | Platform | Desktop (Python server + web GUI) | Native Android | **Any modern browser — installable PWA** |
-| Get it | [Source & install](https://github.com/R0N1N9/katana) *(private repo)* | [Download APK (nightly)](https://github.com/R0N1N9/karambit/releases/download/nightly/roninsec-debug.apk) · [Releases](https://github.com/R0N1N9/karambit/releases) | **[Open the web app](https://r0n1n9.github.io/wakizashi/)** |
-| Repo | `R0N1N9/katana` | [`R0N1N9/karambit`](https://github.com/R0N1N9/karambit) | [`R0N1N9/wakizashi`](https://github.com/R0N1N9/wakizashi) |
+| Get it | [Source & install](https://github.com/R0N1N9/katana) *(private repo)* | [Download APK (nightly)](https://github.com/R0N1N9/tanto/releases/download/nightly/roninsec-debug.apk) · [Releases](https://github.com/R0N1N9/tanto/releases) | **[Open the web app](https://r0n1n9.github.io/wakizashi/)** |
+| Repo | `R0N1N9/katana` | [`R0N1N9/tanto`](https://github.com/R0N1N9/tanto) | [`R0N1N9/wakizashi`](https://github.com/R0N1N9/wakizashi) |
 
-The same links are inside the app under **Settings → RoninSec family**.
+The same links are inside the app under **Settings → Daishō suite**.
 
 The wakizashi is the short companion blade worn beside the katana — this is the one you always have on you.
 

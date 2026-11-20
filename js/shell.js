@@ -118,7 +118,7 @@
   }
   W.openLookup = openLookup;
 
-  // ------------------------------------------------------------------ layer home (Karambit-style grid)
+  // ------------------------------------------------------------------ layer home (Tantō-style grid)
   function renderHome(el, L) {
     const tools = W.toolsOf(L.id);
     const c = W.Case.active();
@@ -131,7 +131,7 @@
   }
 
 
-  // ------------------------------------------------------------------ RoninSec family (cross-links)
+  // ------------------------------------------------------------------ Daishō suite (cross-links)
   W.FAMILY = [
     { id: "katana", name: "Katana", kanji: "刀", platform: "Desktop", accent: "#2fd6cf",
       blurb: "The full suite: a local Python server + console with live lookups, monitors, log agents and the complete toolset.",
@@ -139,11 +139,11 @@
     { id: "wakizashi", name: "Wakizashi", kanji: "脇差", platform: "Web", accent: "#ffb547",
       blurb: "This app — the suite in any browser, desktop or mobile. Installable, offline, nothing leaves the device.",
       links: [["Open the web app", "https://r0n1n9.github.io/wakizashi/"], ["Source", "https://github.com/R0N1N9/wakizashi"]] },
-    { id: "karambit", name: "Karambit", kanji: "カランビット", platform: "Android", accent: "#a855f7",
+    { id: "tanto", name: "Tantō", kanji: "短刀", platform: "Android", accent: "#a855f7",
       blurb: "Native Android edition with on-device radio recon (Bluetooth/BLE), hardening audit and CTI tools.",
-      links: [["Download APK (nightly)", "https://github.com/R0N1N9/karambit/releases/download/nightly/roninsec-debug.apk"], ["Releases", "https://github.com/R0N1N9/karambit/releases"], ["Source", "https://github.com/R0N1N9/karambit"]] },
+      links: [["Download APK (nightly)", "https://github.com/R0N1N9/tanto/releases/download/nightly/roninsec-debug.apk"], ["Releases", "https://github.com/R0N1N9/tanto/releases"], ["Source", "https://github.com/R0N1N9/tanto"]] },
   ];
-  const familyPanel = () => `<section class="panel"><h2>RoninSec family</h2>
+  const familyPanel = () => `<section class="panel"><h2>Daishō suite</h2>
     <p class="muted small" style="margin-top:0">Same layers, same look — pick the edition that fits where you are.</p>
     <div class="grid g3">${W.FAMILY.map((a) => `<div class="tile" style="flex-direction:column;gap:8px;--acc:${a.accent};border-color:${a.id === "wakizashi" ? a.accent : "var(--line)"}">
       <div class="row" style="justify-content:space-between;width:100%"><b style="color:${a.accent}">${esc(a.name.toUpperCase())} <span style="font-family:var(--sans);letter-spacing:0">${esc(a.kanji)}</span></b>${ui.badge(a.id === "wakizashi" ? "you are here" : a.platform, a.id === "wakizashi" ? "ok" : "")}</div>

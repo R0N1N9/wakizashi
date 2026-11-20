@@ -1,5 +1,5 @@
 /* STIX 2.1 bundle builder (port of katana/cti/stix.py). Ids are deterministic UUIDv5 — same namespace as
-   Katana — so exporting the same indicator from Katana, Karambit or Wakizashi updates rather than duplicates
+   Katana — so exporting the same indicator from Katana, Tantō or Wakizashi updates rather than duplicates
    it in OpenCTI. Async because UUIDv5 needs SHA-1 (WebCrypto). */
 (function (W) {
   "use strict";
