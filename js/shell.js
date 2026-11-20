@@ -139,7 +139,7 @@
     { id: "wakizashi", name: "Wakizashi", kanji: "脇差", platform: "Web", accent: "#ffb547",
       blurb: "This app — the suite in any browser, desktop or mobile. Installable, offline, nothing leaves the device.",
       links: [["Open the web app", "https://r0n1n9.github.io/wakizashi/"], ["Source", "https://github.com/R0N1N9/wakizashi"]] },
-    { id: "tanto", name: "Tantō", kanji: "短刀", platform: "Android", accent: "#a855f7",
+    { id: "tanto", name: "Tantō", kanji: "短刀", platform: "Android", accent: "#2fd6cf",
       blurb: "Native Android edition with on-device radio recon (Bluetooth/BLE), hardening audit and CTI tools.",
       links: [["Download APK (nightly)", "https://github.com/R0N1N9/tanto/releases/download/nightly/roninsec-debug.apk"], ["Releases", "https://github.com/R0N1N9/tanto/releases"], ["Source", "https://github.com/R0N1N9/tanto"]] },
   ];
